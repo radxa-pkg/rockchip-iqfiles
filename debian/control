@@ -14,6 +14,6 @@ Section: libs
 Priority: optional
 Depends: camera-engine-rkaiq | rkisp-engine,
          ${misc:Depends},
-Description: Radxa system setup utility
+Description: Additional camera tuning profiles for Rockchip SoC
  This package contains additional camera tuning profiles that is not
  included in the official Rockchip packages.

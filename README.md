@@ -10,7 +10,7 @@ Additional camera tuning profiles for Rockchip SoC
 <summary>Arch</summary>
 
 ```bash
-yay -Syu devscripts dh-autoreconf dh-strip-nondeterminism git-buildpackage pandoc shellcheck
+yay -Syu devscripts dh-autoreconf dh-strip-nondeterminism git-buildpackage pandoc
 sudo tee -a /etc/devscripts.conf <<< 'DEBUILD_DPKG_BUILDPACKAGE_OPTS="-d"'
 # Install missing dependencies of debhelper's dependencies
 yay -Syu perl-sub-override
