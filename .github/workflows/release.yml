@@ -1,0 +1,57 @@
+name: Build & Release
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  release:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - name: Test
+        run: |
+          make test
+      - name: Build
+        run: |
+          sudo apt-get update
+          sudo apt-get build-dep --no-install-recommends -y .
+          make all deb
+      - name: Check if the latest version is releasable
+        run: |
+          echo "version=$(dpkg-parsechangelog -S Version)" >> $GITHUB_ENV
+          echo "changes<<EOF" >> $GITHUB_ENV
+          echo '```' >> $GITHUB_ENV
+          echo "$(dpkg-parsechangelog -S Changes)" >> $GITHUB_ENV
+          echo '```' >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+          if [[ -n "$(git tag -l "$(dpkg-parsechangelog -S Version)")" ]]
+          then
+            echo "distro=UNRELEASED" >> $GITHUB_ENV
+          else
+            echo "distro=$(dpkg-parsechangelog -S Distribution)" >> $GITHUB_ENV
+          fi
+      - name: Release
+        if: env.distro != 'UNRELEASED'
+        uses: softprops/action-gh-release@cd28b0f5ee8571b76cfdaa62a30d51d752317477
+        with:
+          tag_name: ${{ env.version }}
+          body_path: README.md
+          token: ${{ secrets.GITHUB_TOKEN }}
+          target_commitish: main
+          draft: false
+          files: |
+            ../*.deb
+            pkg.conf
+      - name: Append changelog
+        if: env.distro != 'UNRELEASED'
+        uses: softprops/action-gh-release@cd28b0f5ee8571b76cfdaa62a30d51d752317477
+        with:
+          tag_name: ${{ env.version }}
+          body: |
+            ## Changelog for ${{ env.version }}
+            ${{ env.changes }}
+          append_body: true

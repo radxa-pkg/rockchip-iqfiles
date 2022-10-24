@@ -1,0 +1,5 @@
+rockchip-iqfiles (0.1.0) stable; urgency=medium
+
+  * Add support for Raspberry Pi Camera Module 2 (IMX219)
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Mon, 24 Oct 2022 15:18:52 +0800

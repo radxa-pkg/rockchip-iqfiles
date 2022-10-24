@@ -1,0 +1,19 @@
+Source: rockchip-iqfiles
+Maintainer: "Radxa Computer Co., Ltd" <dev@radxa.com>
+Section: libs
+Priority: optional
+Standards-Version: 4.6.0
+Build-Depends: debhelper (>=12~),
+               devscripts,
+               lintian,
+               pandoc,
+
+Package: rockchip-iqfiles
+Architecture: all
+Section: libs
+Priority: optional
+Depends: camera-engine-rkaiq | rkisp-engine,
+         ${misc:Depends},
+Description: Radxa system setup utility
+ This package contains additional camera tuning profiles that is not
+ included in the official Rockchip packages.

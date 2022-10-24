@@ -1,0 +1,7 @@
+/.debhelper
+/debhelper-build-stamp
+/files
+/rockchip-iqfiles
+/*.debhelper.log
+/*.postrm.debhelper
+/*.substvars
