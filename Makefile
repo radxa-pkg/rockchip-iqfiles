@@ -19,13 +19,7 @@ test:
 # Build
 #
 .PHONY: build
-build: build-man build-doc
-
-SRC-MAN		:=	man
-SRCS-MAN	:=	$(wildcard $(SRC-MAN)/*.md)
-MANS		:=	$(SRCS-MAN:.md=)
-.PHONY: build-man
-build-man: $(MANS)
+build: build-doc
 
 $(SRC-MAN)/%: $(SRC-MAN)/%.md
 	pandoc "$<" -o "$@" --from markdown --to man -s
@@ -42,32 +36,13 @@ $(SRC-DOC)/SOURCE: $(SRC-DOC)
 	echo -e "git clone $(shell git remote get-url origin)\ngit checkout $(shell git rev-parse HEAD)" > "$@"
 
 #
-# Install
-#
-.PHONY: install
-install: install-man
-	install -d $(DESTDIR)$(SHAREDIR)/${PROJECT}
-	install -m 644 usr/share/${PROJECT}/* $(DESTDIR)$(SHAREDIR)/${PROJECT}
-	install -d $(DESTDIR)$(ETCDIR)/iqfiles
-	ln -fs $(SHAREDIR)/${PROJECT}/* $(DESTDIR)$(ETCDIR)/iqfiles/
-
-.PHONY: install-man
-install-man: build-man
-	install -d $(DESTDIR)$(MANDIR)/man7
-	install -m 644 $(SRC-MAN)/*.7 $(DESTDIR)$(MANDIR)/man7/
-
-#
 # Clean
 #
 .PHONY: distclean
 distclean: clean
 
 .PHONY: clean
-clean: clean-man clean-doc clean-deb
-
-.PHONY: clean-man
-clean-man:
-	rm -rf $(MANS)
+clean: clean-doc clean-deb
 
 .PHONY: clean-doc
 clean-doc:
