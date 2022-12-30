@@ -1,11 +1,11 @@
-name: Build
+name: Build & Release
 on:
   workflow_dispatch:
   pull_request:
   push:
 
 jobs:
-  release:
+  build:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
@@ -21,3 +21,60 @@ jobs:
           sudo apt-get update
           sudo apt-get build-dep --no-install-recommends -y .
           make all deb
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ github.repository }}
+          path: |
+            ../*.deb
+  release:
+    runs-on: ubuntu-22.04
+    needs: build
+    if: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - uses: actions/download-artifact@v3
+        with:
+          name: ${{ github.repository }}
+      - name: Check if the latest version is releasable
+        run: |
+          version="$(dpkg-parsechangelog -S Version)"
+          echo "version=$version" >> $GITHUB_ENV
+          echo "changes<<EOF" >> $GITHUB_ENV
+          echo '```' >> $GITHUB_ENV
+          echo "$(dpkg-parsechangelog -S Changes)" >> $GITHUB_ENV
+          echo '```' >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+          if [[ -n "$(git tag -l "$version")" ]]
+          then
+            echo "distro=UNRELEASED" >> $GITHUB_ENV
+          else
+            echo "distro=$(dpkg-parsechangelog -S Distribution)" >> $GITHUB_ENV
+          fi
+          echo "$version" > VERSION
+      - name: Release
+        if: env.distro != 'UNRELEASED'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.version }}
+          body_path: README.md
+          token: ${{ secrets.GITHUB_TOKEN }}
+          target_commitish: main
+          draft: false
+          files: |
+            *.deb
+            pkg.conf
+            VERSION
+      - name: Append changelog
+        if: env.distro != 'UNRELEASED'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.version }}
+          body: |
+            ## Changelog for ${{ env.version }}
+            ${{ env.changes }}
+          append_body: true
