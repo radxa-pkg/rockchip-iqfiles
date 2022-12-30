@@ -1,3 +1,9 @@
+rockchip-iqfiles (0.1.2) stable; urgency=medium
+
+  * Update CI
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Fri, 30 Dec 2022 18:57:43 +0800
+
 rockchip-iqfiles (0.1.1) stable; urgency=medium
 
   * Add OV5647 profiles
