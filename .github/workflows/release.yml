@@ -21,12 +21,15 @@ jobs:
           sudo apt-get update
           sudo apt-get build-dep --no-install-recommends -y .
           make all deb
+      - name: Workaround actions/upload-artifact#176
+        run: |
+          echo "artifacts_path=$(realpath ..)" >> $GITHUB_ENV
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: ${{ github.repository }}
           path: |
-            ../*.deb
+            ${{ env.artifacts_path }}/*.deb
   release:
     runs-on: ubuntu-22.04
     needs: build
