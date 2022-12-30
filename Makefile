@@ -49,7 +49,7 @@ install: install-man
 	install -d $(DESTDIR)$(SHAREDIR)/${PROJECT}
 	install -m 644 usr/share/${PROJECT}/* $(DESTDIR)$(SHAREDIR)/${PROJECT}
 	install -d $(DESTDIR)$(ETCDIR)/iqfiles
-	ln -fs $(SHAREDIR)/${PROJECT}/imx219_rpi-camera-v2_default.xml $(DESTDIR)$(ETCDIR)/iqfiles/imx219_rpi-camera-v2_default.xml
+	ln -fs $(SHAREDIR)/${PROJECT}/* $(DESTDIR)$(ETCDIR)/iqfiles/
 
 .PHONY: install-man
 install-man: build-man
