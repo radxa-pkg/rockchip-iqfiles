@@ -61,4 +61,4 @@ dch: debian/changelog
 
 .PHONY: deb
 deb: debian
-	debuild --no-sign
+	debuild --no-lintian --lintian-hook "lintian --fail-on error,warning,info %p_%v_*.changes" --no-sign
