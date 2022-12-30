@@ -1,3 +1,9 @@
+rockchip-iqfiles (0.1.1) stable; urgency=medium
+
+  * Add OV5647 profiles
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Fri, 30 Dec 2022 16:57:44 +0800
+
 rockchip-iqfiles (0.1.0) stable; urgency=medium
 
   * Add support for Raspberry Pi Camera Module 2 (IMX219)
