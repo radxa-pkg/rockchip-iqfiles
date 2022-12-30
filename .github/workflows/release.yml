@@ -1,7 +1,9 @@
-name: Build & Release
+name: Release
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
 
 jobs:
   release:
