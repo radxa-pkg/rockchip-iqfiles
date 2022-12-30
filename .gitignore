@@ -1,5 +1,3 @@
 /.vscode*
 SOURCE
-/boot
-/config
-/etc
+/VERSION
