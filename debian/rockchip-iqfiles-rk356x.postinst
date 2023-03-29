@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+case $1 in
+	configure)
+        for i in /usr/share/rockchip-iqfiles-rk356x/*
+		do
+			ln -fs "$i" "/etc/iqfiles/$(basename "$i")"
+		done
+		;;
+esac
+    
+#DEBHELPER#
+
+exit 0

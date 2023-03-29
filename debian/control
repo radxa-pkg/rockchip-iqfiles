@@ -17,3 +17,13 @@ Depends: camera-engine-rkaiq | rkisp-engine,
 Description: Additional camera tuning profiles for Rockchip SoC
  This package contains additional camera tuning profiles that is not
  included in the official Rockchip packages.
+
+Package: rockchip-iqfiles-rk356x
+Architecture: all
+Section: libs
+Priority: optional
+Depends: camera-engine-rkaiq,
+         ${misc:Depends},
+Description: Additional camera tuning profiles for Rockchip RK356X
+ This package contains additional camera tuning profiles that is not
+ included in the official Rockchip packages.
