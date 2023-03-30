@@ -1,3 +1,9 @@
+rockchip-iqfiles (0.1.5) stable; urgency=medium
+
+  * Update Raspberry Pi Camera Module 2 profile for RK356X
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 30 Mar 2023 18:23:35 +0800
+
 rockchip-iqfiles (0.1.4) stable; urgency=medium
 
   * Add rockchip-iqfiles-rk356x for RK356X specific profile
