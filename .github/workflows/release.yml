@@ -4,9 +4,12 @@ on:
   pull_request:
   push:
 
+permissions:
+  contents: write
+
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -31,7 +34,7 @@ jobs:
           path: |
             ${{ env.artifacts_path }}/*.deb
   release:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     needs: build
     if: ${{ github.event_name != 'pull_request' && github.ref_name == 'main' }}
     steps:
@@ -82,3 +85,9 @@ jobs:
             ## Changelog for ${{ env.version }}
             ${{ env.changes }}
           append_body: true
+      - name: Update Test repos
+        if: env.distro != 'UNRELEASED'
+        uses: radxa-repo/update-repo-action@main
+        with:
+          test-repo: true
+          token: ${{ secrets.RADXA_APT_TEST_REPO_TOKEN }}
