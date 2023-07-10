@@ -72,7 +72,7 @@
 		"CISHdrSet":	{
 			"hdr_en":	0,
 			"hdr_mode":	"RK_AIQ_ISP_HDR_MODE_2_LINE_HDR",
-			"line_mode":	"RK_AIQ_SENSOR_HDR_LINE_MODE_STAGGER"
+			"line_mode":	"RKAIQ_SENSOR_HDR_MODE_STAGGER"
 		},
 		"CISDcgSet":	{
 			"Linear":	{
@@ -155,15 +155,21 @@
 								},
 								"AecSpeed":	{
 									"SmoothEn":	1,
-									"DyDampEn":	1,
 									"DampOver":	0.15,
 									"DampUnder":	0.45,
 									"DampDark2Bright":	0.15,
-									"DampBright2Dark":	0.45
+									"DampBright2Dark":	0.45,
+									"DyDamp":	{
+										"DyDampEn":	1,
+										"SlowOPType":	"RK_AIQ_OP_MODE_AUTO",
+										"SlowRange":	15,
+										"SlowDamp":	0.95
+									}
 								},
-								"AecDelayFrmNum":	{
-									"BlackDelay":	15,
-									"WhiteDelay":	20
+								"AecDelay":	{
+									"DelayType":	"DELAY_TYPE_FRAME",
+									"BlackDelay":	2,
+									"WhiteDelay":	2
 								},
 								"AecFrameRateMode":	{
 									"isFpsFix":	1,
@@ -175,6 +181,7 @@
 									"Mode":	"AECV2_ANTIFLICKER_AUTO_MODE"
 								},
 								"AecEnvLvCalib":	{
+									"Enable":	0,
 									"CalibFNumber":	1.6,
 									"CurveCoeff":	[0.02859, 0.5972]
 								},
@@ -267,7 +274,7 @@
 								"ToleranceIn":	10,
 								"ToleranceOut":	15,
 								"Evbias":	0,
-								"StrategyMode":	"AECV2_STRATEGY_MODE_LOWLIGHT_PRIOR",
+								"StrategyMode":	"AECV2_STRATEGY_MODE_LOWLIGHT",
 								"LumaDistTh":	10,
 								"InitExp":	{
 									"InitTimeValue":	[0.0005, 0.003, 0.003],
@@ -277,25 +284,25 @@
 									"InitDCIrisDutyValue":	100
 								},
 								"Route":	{
-									"Frm0TimeDot":	[0, 0.004, 0.004, 0.004, 0.004, 0.004],
+									"Frm0TimeDot":	[0, 0.003, 0.003, 0.003, 0.003, 0.003],
 									"Frm0TimeDot_len":	6,
-									"Frm0GainDot":	[1, 1, 2, 4, 8, 16],
+									"Frm0GainDot":	[1, 1, 4, 8, 15.5, 15.5],
 									"Frm0GainDot_len":	6,
 									"Frm0IspDGainDot":	[1, 1, 1, 1, 1, 1],
 									"Frm0IspDGainDot_len":	6,
-									"Frm1TimeDot":	[0, 0.04, 0.04, 0.04, 0.04, 0.04],
+									"Frm1TimeDot":	[0, 0.03, 0.03, 0.03, 0.03, 0.03],
 									"Frm1TimeDot_len":	6,
-									"Frm1GainDot":	[1, 1, 2, 4, 8, 16],
+									"Frm1GainDot":	[1, 1, 4, 8, 15.5, 15.5],
 									"Frm1GainDot_len":	6,
 									"Frm1IspDGainDot":	[1, 1, 1, 1, 1, 1],
 									"Frm1IspDGainDot_len":	6,
-									"Frm2TimeDot":	[0, 0.04, 0.04, 0.04, 0.04, 0.04],
+									"Frm2TimeDot":	[0, 0.03, 0.03, 0.03, 0.03, 0.03],
 									"Frm2TimeDot_len":	6,
-									"Frm2GainDot":	[1, 1, 2, 4, 8, 16],
+									"Frm2GainDot":	[1, 1, 4, 8, 15.5, 15.5],
 									"Frm2GainDot_len":	6,
 									"Frm2IspDGainDot":	[1, 1, 1, 1, 1, 1],
 									"Frm2IspDGainDot_len":	6,
-									"PIrisDot":	[2, 2, 2, 1, 1, 1],
+									"PIrisDot":	[512, 512, 512, 512, 512, 512],
 									"PIrisDot_len":	6
 								},
 								"ExpRatioCtrl":	{
@@ -314,7 +321,7 @@
 									}
 								},
 								"LongFrmMode":	{
-									"mode":	"AECV2_HDR_LONGFRMMODE_NORMAL",
+									"mode":	"AECV2_HDR_LONGFRMMODE_DISABLE",
 									"SfrmMinLine":	2,
 									"LfrmModeExpTh":	0.62
 								},
@@ -323,7 +330,7 @@
 									"LvLowTh":	0.3125,
 									"LvHighTh":	7.5,
 									"LfrmSetPoint":	{
-										"LExpLevel":	[0, 0.0064, 0.0192, 0.032, 0.064, 0.128],
+										"LExpLevel":	[0, 0.00465, 0.01395, 0.02325, 0.0465, 0.093],
 										"LExpLevel_len":	6,
 										"NonOEPdfTh":	[0.4, 0.45, 0.55, 0.65, 0.75, 1],
 										"NonOEPdfTh_len":	6,
@@ -336,7 +343,7 @@
 									}
 								},
 								"MframeCtrl":	{
-									"MExpLevel":	[0.032, 0.064, 0.128, 0.32, 0.448, 0.64],
+									"MExpLevel":	[0.02325, 0.0465, 0.093, 0.2325, 0.3255, 0.465],
 									"MExpLevel_len":	6,
 									"MSetPoint":	[60, 60, 55, 50, 45, 40],
 									"MSetPoint_len":	6
@@ -345,7 +352,7 @@
 									"HLROIExpandEn":	0,
 									"HLLumaTolerance":	12,
 									"SfrmSetPoint":	{
-										"SExpLevel":	[0, 0.0032, 0.0096, 0.016, 0.0256, 0.0384],
+										"SExpLevel":	[0, 0.002325, 0.006975, 0.011625, 0.0186, 0.0279],
 										"SExpLevel_len":	6,
 										"SSetPoint":	[18, 18, 15, 12, 12, 12],
 										"SSetPoint_len":	6,
@@ -357,7 +364,7 @@
 							"IrisCtrl":	{
 								"Enable":	0,
 								"IrisType":	"IRISV2_DC_TYPE",
-								"ManualEn":	1,
+								"ManualEn":	0,
 								"ManualAttr":	{
 									"PIrisGainValue":	1,
 									"DCIrisHoldValue":	30
@@ -435,7 +442,7 @@
 							},
 							"autoPara":	{
 								"hdrPara":	{
-									"frameChooseMode":	"CALIB_AWB_HDR_FRAME_CHOOSE_MODE_MANUAL",
+									"frameChooseMode":	"CALIB_AWB_HDR_FRAME_CHOOSE_MODE_AUTO",
 									"frameChoose":	1
 								},
 								"lscBypassEnable":	0,
@@ -445,8 +452,8 @@
 								"lsUsedForYuvDet":	["A", "CWF", "D50", "D65", "D75", "HZ", "TL84"],
 								"lsUsedForYuvDet_len":	7,
 								"blkStatisticsEnable":	1,
-								"downScaleMode":	"CALIB_AWB_DS_8X8",
-								"blkMeasureMode":	"CALIB_AWB_BLK_STAT_MODE_ALL_V201",
+								"downScaleMode":	"CALIB_AWB_DS_4X4",
+								"blkMeasureMode":	"CALIB_AWB_BLK_STAT_MODE_AL_V201",
 								"mainWindow":	{
 									"mode":	"CALIB_AWB_WINDOW_CFG_AUTO",
 									"window":	[0, 0, 1, 1]
@@ -566,7 +573,13 @@
 										"dayGainLvThSet":	[1024, 8192],
 										"defaultDayGainLow":	[1.5401, 1, 1, 1.5375],
 										"defaultDayGainHigh":	[1.7859, 1, 1, 1.3319],
-										"xyType2Enable":	1
+										"xyType2Enable":	1,
+										"weight":	{
+											"lumaValue":	[0, 2, 4, 8, 32, 128, 1024, 8192, 65536, 262144],
+											"lumaValue_len":	10,
+											"weight":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+											"weight_len":	10
+										}
 									}, {
 										"name":	"CWF",
 										"doorType":	"CALIB_AWB_DOOR_TYPE_INDOOR",
@@ -589,7 +602,13 @@
 										"dayGainLvThSet":	[1024, 8192],
 										"defaultDayGainLow":	[1.5401, 1, 1, 1.5375],
 										"defaultDayGainHigh":	[1.7859, 1, 1, 1.3319],
-										"xyType2Enable":	1
+										"xyType2Enable":	1,
+										"weight":	{
+											"lumaValue":	[0, 2, 4, 8, 32, 128, 1024, 8192, 65536, 262144],
+											"lumaValue_len":	10,
+											"weight":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+											"weight_len":	10
+										}
 									}, {
 										"name":	"D50",
 										"doorType":	"CALIB_AWB_DOOR_TYPE_AMBIGUITY",
@@ -612,7 +631,13 @@
 										"dayGainLvThSet":	[1024, 8192],
 										"defaultDayGainLow":	[1.5401, 1, 1, 1.5375],
 										"defaultDayGainHigh":	[1.7859, 1, 1, 1.3319],
-										"xyType2Enable":	1
+										"xyType2Enable":	1,
+										"weight":	{
+											"lumaValue":	[0, 2, 4, 8, 32, 128, 1024, 8192, 65536, 262144],
+											"lumaValue_len":	10,
+											"weight":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+											"weight_len":	10
+										}
 									}, {
 										"name":	"D65",
 										"doorType":	"CALIB_AWB_DOOR_TYPE_OUTDOOR",
@@ -635,7 +660,13 @@
 										"dayGainLvThSet":	[1024, 8192],
 										"defaultDayGainLow":	[1.5401, 1, 1, 1.5375],
 										"defaultDayGainHigh":	[1.7859, 1, 1, 1.3319],
-										"xyType2Enable":	1
+										"xyType2Enable":	1,
+										"weight":	{
+											"lumaValue":	[0, 2, 4, 8, 32, 128, 1024, 8192, 65536, 262144],
+											"lumaValue_len":	10,
+											"weight":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+											"weight_len":	10
+										}
 									}, {
 										"name":	"D75",
 										"doorType":	"CALIB_AWB_DOOR_TYPE_OUTDOOR",
@@ -658,7 +689,13 @@
 										"dayGainLvThSet":	[1024, 8192],
 										"defaultDayGainLow":	[1.5401, 1, 1, 1.5375],
 										"defaultDayGainHigh":	[1.7859, 1, 1, 1.3319],
-										"xyType2Enable":	1
+										"xyType2Enable":	1,
+										"weight":	{
+											"lumaValue":	[0, 2, 4, 8, 32, 128, 1024, 8192, 65536, 262144],
+											"lumaValue_len":	10,
+											"weight":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+											"weight_len":	10
+										}
 									}, {
 										"name":	"HZ",
 										"doorType":	"CALIB_AWB_DOOR_TYPE_INDOOR",
@@ -681,7 +718,13 @@
 										"dayGainLvThSet":	[1024, 8192],
 										"defaultDayGainLow":	[1.5401, 1, 1, 1.5375],
 										"defaultDayGainHigh":	[1.7859, 1, 1, 1.3319],
-										"xyType2Enable":	1
+										"xyType2Enable":	1,
+										"weight":	{
+											"lumaValue":	[0, 2, 4, 8, 32, 128, 1024, 8192, 65536, 262144],
+											"lumaValue_len":	10,
+											"weight":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+											"weight_len":	10
+										}
 									}, {
 										"name":	"TL84",
 										"doorType":	"CALIB_AWB_DOOR_TYPE_INDOOR",
@@ -704,12 +747,31 @@
 										"dayGainLvThSet":	[1024, 8192],
 										"defaultDayGainLow":	[1.5401, 1, 1, 1.5375],
 										"defaultDayGainHigh":	[1.7859, 1, 1, 1.3319],
-										"xyType2Enable":	1
+										"xyType2Enable":	1,
+										"weight":	{
+											"lumaValue":	[0, 2, 4, 8, 32, 128, 1024, 8192, 65536, 262144],
+											"lumaValue_len":	10,
+											"weight":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+											"weight_len":	10
+										}
 									}],
 								"lightSources_len":	7
 							},
 							"autoExtPara":	{
 								"lightSourceForFirstFrame":	"D50",
+								"smartRun":	{
+									"enable":	1,
+									"cfg":	{
+										"lumaValue":	[0],
+										"lumaValue_len":	1,
+										"lvVarTh":	[0.001],
+										"lvVarTh_len":	1,
+										"wbgainAlgDiffTh":	[0.005],
+										"wbgainAlgDiffTh_len":	1,
+										"wbgainHwDiffTh":	[0.05],
+										"wbgainHwDiffTh_len":	1
+									}
+								},
 								"tolerance":	{
 									"lumaValue":	[256, 512, 32768, 131072],
 									"lumaValue_len":	4,
@@ -723,9 +785,9 @@
 									"intervalValue_len":	4
 								},
 								"dampFactor":	{
-									"dFStep":	0.05,
-									"dFMin":	0.7,
-									"dFMax":	0.9,
+									"dFStep":	0.1,
+									"dFMin":	0.4,
+									"dFMax":	0.7,
 									"lvIIRsize":	4,
 									"lvVarTh":	0.04
 								},
@@ -887,7 +949,7 @@
 								}
 							}
 						},
-						"agamma_calib":	{
+						"agamma_calib_v10":	{
 							"GammaTuningPara":	{
 								"Gamma_en":	1,
 								"Gamma_out_segnum":	"GAMMATYPE_LOG",
@@ -912,7 +974,7 @@
 								}
 							},
 							"Blc1TuningPara":	{
-								"enable":	1,
+								"enable":	0,
 								"BLC_Data":	{
 									"ISO":	[50, 100, 200, 400, 800, 1600, 3200, 10000, 12800, 25600, 51200, 102400, 204800],
 									"ISO_len":	13,
@@ -941,142 +1003,111 @@
 								"enable":	0,
 								"gr_ration":	0,
 								"GicData":	{
-									"ISO":	[50, 100, 200, 400, 800, 1600, 3200, 6400, 12800],
-									"ISO_len":	9,
-									"min_busy_thre":	[40, 40, 40, 40, 40, 40, 40, 40, 40],
-									"min_busy_thre_len":	9,
-									"min_grad_thr1":	[16, 16, 16, 16, 16, 16, 16, 16, 16],
-									"min_grad_thr1_len":	9,
-									"min_grad_thr2":	[8, 8, 8, 8, 8, 8, 8, 8, 8],
-									"min_grad_thr2_len":	9,
-									"k_grad1":	[64, 64, 64, 64, 64, 64, 64, 64, 64],
-									"k_grad1_len":	9,
-									"k_grad2":	[2, 2, 2, 2, 2, 2, 2, 2, 2],
-									"k_grad2_len":	9,
-									"gb_thre":	[32, 32, 32, 32, 32, 32, 32, 32, 32],
-									"gb_thre_len":	9,
-									"maxCorV":	[10, 10, 10, 10, 10, 10, 10, 10, 10],
-									"maxCorV_len":	9,
-									"maxCorVboth":	[20, 20, 20, 20, 20, 20, 20, 20, 20],
-									"maxCorVboth_len":	9,
-									"dark_thre":	[120, 120, 120, 120, 120, 120, 120, 120, 120],
-									"dark_thre_len":	9,
-									"dark_threHi":	[240, 240, 240, 240, 240, 240, 240, 240, 240],
-									"dark_threHi_len":	9,
-									"k_grad1_dark":	[64, 64, 64, 64, 64, 64, 64, 64, 64],
-									"k_grad1_dark_len":	9,
-									"k_grad2_dark":	[2, 2, 2, 2, 2, 2, 2, 2, 2],
-									"k_grad2_dark_len":	9,
-									"min_grad_thr_dark1":	[16, 16, 16, 16, 16, 16, 16, 16, 16],
-									"min_grad_thr_dark1_len":	9,
-									"min_grad_thr_dark2":	[8, 8, 8, 8, 8, 8, 8, 8, 8],
-									"min_grad_thr_dark2_len":	9,
-									"noiseCurve_0":	[0, 0, 0, 0, 0, 0, 0, 0, 0],
-									"noiseCurve_0_len":	9,
-									"noiseCurve_1":	[0, 0, 0, 0, 0, 0, 0, 0, 0],
-									"noiseCurve_1_len":	9,
-									"NoiseScale":	[0, 0, 0, 0, 0, 0, 0, 0, 0],
-									"NoiseScale_len":	9,
-									"NoiseBase":	[0, 0, 0, 0, 0, 0, 0, 0, 0],
-									"NoiseBase_len":	9,
-									"globalStrength":	[1, 1, 1, 1, 1, 1, 1, 1, 1],
-									"globalStrength_len":	9,
-									"diff_clip":	[32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767],
-									"diff_clip_len":	9
+									"ISO":	[50, 100, 200, 400, 800, 1600, 3200, 6400, 12800, 25600, 51200, 102400, 204800],
+									"ISO_len":	13,
+									"min_busy_thre":	[40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40],
+									"min_busy_thre_len":	13,
+									"min_grad_thr1":	[16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16],
+									"min_grad_thr1_len":	13,
+									"min_grad_thr2":	[8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+									"min_grad_thr2_len":	13,
+									"k_grad1":	[64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64],
+									"k_grad1_len":	13,
+									"k_grad2":	[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+									"k_grad2_len":	13,
+									"gb_thre":	[32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32],
+									"gb_thre_len":	13,
+									"maxCorV":	[10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+									"maxCorV_len":	13,
+									"maxCorVboth":	[20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20],
+									"maxCorVboth_len":	13,
+									"dark_thre":	[120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120],
+									"dark_thre_len":	13,
+									"dark_threHi":	[240, 240, 240, 240, 240, 240, 240, 240, 240, 240, 240, 240, 240],
+									"dark_threHi_len":	13,
+									"k_grad1_dark":	[64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64],
+									"k_grad1_dark_len":	13,
+									"k_grad2_dark":	[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+									"k_grad2_dark_len":	13,
+									"min_grad_thr_dark1":	[16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16],
+									"min_grad_thr_dark1_len":	13,
+									"min_grad_thr_dark2":	[8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+									"min_grad_thr_dark2_len":	13,
+									"noiseCurve_0":	[0.9648, 1.2931, 1.5341, 1.7922, 2.2069, 2.2069, 2.2069, 2.2069, 2.2069, 2.2069, 2.2069, 2.2069, 2.2069],
+									"noiseCurve_0_len":	13,
+									"noiseCurve_1":	[3.328, 5.1878, 9.7819, 12.7917, 19.0315, 19.0315, 19.0315, 19.0315, 19.0315, 19.0315, 19.0315, 19.0315, 19.0315],
+									"noiseCurve_1_len":	13,
+									"NoiseScale":	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+									"NoiseScale_len":	13,
+									"NoiseBase":	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+									"NoiseBase_len":	13,
+									"globalStrength":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+									"globalStrength_len":	13,
+									"diff_clip":	[32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767],
+									"diff_clip_len":	13
 								}
 							}
 						},
-						"adehaze_calib_v21":	{
+						"adehaze_calib_v11":	{
 							"DehazeTuningPara":	{
 								"Enable":	1,
+								"CtrlDataType":	"CTRLDATATYPE_ENVLV",
 								"cfg_alpha":	0,
 								"ByPassThr":	0,
 								"dehaze_setting":	{
-									"en":	0,
+									"en":	1,
 									"air_lc_en":	1,
 									"stab_fnum":	8,
-									"sigma":	6,
+									"sigma":	255,
 									"wt_sigma":	8,
 									"air_sigma":	120,
 									"tmax_sigma":	0.01,
-									"pre_wet":	0.01,
+									"pre_wet":	8,
 									"DehazeData":	{
-										"EnvLv":	[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 0.9, 1],
-										"EnvLv_len":	9,
-										"dc_min_th":	[64, 64, 64, 64, 64, 64, 64, 64, 64],
-										"dc_min_th_len":	9,
-										"dc_max_th":	[192, 192, 192, 192, 192, 192, 192, 192, 192],
-										"dc_max_th_len":	9,
-										"yhist_th":	[249, 249, 249, 249, 249, 249, 249, 249, 249],
-										"yhist_th_len":	9,
-										"yblk_th":	[0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002],
-										"yblk_th_len":	9,
-										"dark_th":	[250, 250, 250, 250, 250, 250, 250, 250, 250],
-										"dark_th_len":	9,
-										"bright_min":	[180, 180, 180, 180, 180, 180, 180, 180, 180],
-										"bright_min_len":	9,
-										"bright_max":	[240, 240, 240, 240, 240, 240, 240, 240, 240],
-										"bright_max_len":	9,
-										"wt_max":	[0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
-										"wt_max_len":	9,
-										"air_min":	[200, 200, 200, 200, 200, 200, 200, 200, 200],
-										"air_min_len":	9,
-										"air_max":	[250, 250, 250, 250, 250, 250, 250, 250, 250],
-										"air_max_len":	9,
-										"tmax_base":	[125, 125, 125, 125, 125, 125, 125, 125, 125],
-										"tmax_base_len":	9,
-										"tmax_off":	[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
-										"tmax_off_len":	9,
-										"tmax_max":	[0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
-										"tmax_max_len":	9,
-										"cfg_wt":	[0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
-										"cfg_wt_len":	9,
-										"cfg_air":	[210, 210, 210, 210, 210, 210, 210, 210, 210],
-										"cfg_air_len":	9,
-										"cfg_tmax":	[0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2],
-										"cfg_tmax_len":	9,
-										"dc_weitcur":	[1, 1, 1, 1, 1, 1, 1, 1, 1],
-										"dc_weitcur_len":	9,
-										"bf_weight":	[0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
-										"bf_weight_len":	9,
-										"range_sigma":	[0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14],
-										"range_sigma_len":	9,
-										"space_sigma_pre":	[0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14],
-										"space_sigma_pre_len":	9,
-										"space_sigma_cur":	[0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14],
-										"space_sigma_cur_len":	9
+										"CtrlData":	[0, 0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1],
+										"dc_min_th":	[64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64],
+										"dc_max_th":	[192, 192, 192, 192, 192, 192, 192, 192, 192, 192, 192, 192, 192],
+										"yhist_th":	[249, 249, 249, 249, 249, 249, 249, 249, 249, 249, 249, 249, 249],
+										"yblk_th":	[0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002],
+										"dark_th":	[250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250],
+										"bright_min":	[180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180],
+										"bright_max":	[240, 240, 240, 240, 240, 240, 240, 240, 240, 240, 240, 240, 240],
+										"wt_max":	[0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
+										"air_min":	[200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200],
+										"air_max":	[250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250],
+										"tmax_base":	[125, 125, 125, 125, 125, 125, 125, 125, 125, 125, 125, 125, 125],
+										"tmax_off":	[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+										"tmax_max":	[0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
+										"cfg_wt":	[0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
+										"cfg_air":	[210, 210, 210, 210, 210, 210, 210, 210, 210, 210, 210, 210, 210],
+										"cfg_tmax":	[0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2],
+										"dc_weitcur":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+										"bf_weight":	[0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
+										"range_sigma":	[0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14],
+										"space_sigma_pre":	[0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14],
+										"space_sigma_cur":	[0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14]
 									}
 								},
 								"enhance_setting":	{
 									"en":	1,
 									"enhance_curve":	[0, 64, 128, 192, 256, 320, 384, 448, 512, 576, 640, 704, 768, 832, 896, 960, 1023],
 									"EnhanceData":	{
-										"EnvLv":	[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 0.9, 1],
-										"EnvLv_len":	9,
-										"enhance_value":	[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1],
-										"enhance_value_len":	9,
-										"enhance_chroma":	[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-										"enhance_chroma_len":	9
+										"CtrlData":	[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 0.9, 0.94, 0.95, 0.96, 0.98, 1],
+										"enhance_value":	[1.25, 1.25, 1.25, 1.2, 1.2, 1.2, 1.1, 1.1, 1, 1, 1, 1, 1],
+										"enhance_chroma":	[1.3, 1.25, 1.25, 1.2, 1.2, 1.2, 1.1, 1.1, 1, 1, 1, 1, 1]
 									}
 								},
 								"hist_setting":	{
 									"en":	0,
 									"hist_para_en":	1,
 									"HistData":	{
-										"EnvLv":	[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 0.9, 1],
-										"EnvLv_len":	9,
-										"hist_gratio":	[2, 2, 2, 2, 2, 2, 2, 2, 2],
-										"hist_gratio_len":	9,
-										"hist_th_off":	[64, 64, 64, 64, 64, 64, 64, 64, 64],
-										"hist_th_off_len":	9,
-										"hist_k":	[2, 2, 2, 2, 2, 2, 2, 2, 2],
-										"hist_k_len":	9,
-										"hist_min":	[0.015, 0.015, 0.015, 0.015, 0.015, 0.015, 0.015, 0.015, 0.015],
-										"hist_min_len":	9,
-										"hist_scale":	[0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09],
-										"hist_scale_len":	9,
-										"cfg_gratio":	[2, 2, 2, 2, 2, 2, 2, 2, 2],
-										"cfg_gratio_len":	9
+										"CtrlData":	[0, 0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1],
+										"hist_gratio":	[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+										"hist_th_off":	[64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64],
+										"hist_k":	[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+										"hist_min":	[0.015, 0.015, 0.015, 0.015, 0.015, 0.015, 0.015, 0.015, 0.015, 0.015, 0.015, 0.015, 0.015],
+										"hist_scale":	[0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09],
+										"cfg_gratio":	[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
 									}
 								}
 							}
@@ -1258,27 +1289,20 @@
 								}
 							}
 						},
-						"amerge_calib":	{
+						"amerge_calib_v10":	{
 							"MergeTuningPara":	{
+								"CtrlDataType":	"CTRLDATATYPE_ENVLV",
 								"OECurve":	{
-									"EnvLv":	[0, 0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1],
-									"EnvLv_len":	13,
+									"CtrlData":	[0, 0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1],
 									"Smooth":	[0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4],
-									"Smooth_len":	13,
-									"Offset":	[210, 210, 210, 210, 210, 210, 210, 210, 210, 210, 210, 210, 210],
-									"Offset_len":	13
+									"Offset":	[210, 210, 210, 210, 210, 210, 210, 210, 210, 210, 210, 210, 210]
 								},
 								"MDCurve":	{
 									"MoveCoef":	[0, 0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1],
-									"MoveCoef_len":	13,
 									"LM_smooth":	[0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4],
-									"LM_smooth_len":	13,
 									"LM_offset":	[0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38],
-									"LM_offset_len":	13,
 									"MS_smooth":	[0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4],
-									"MS_smooth_len":	13,
-									"MS_offset":	[0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38],
-									"MS_offset_len":	13
+									"MS_offset":	[0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38, 0.38]
 								},
 								"ByPassThr":	0,
 								"OECurve_damp":	0.3,
@@ -1286,35 +1310,26 @@
 								"MDCurveMS_damp":	0.3
 							}
 						},
-						"adrc_calib":	{
+						"adrc_calib_v10":	{
 							"DrcTuningPara":	{
 								"Enable":	0,
+								"CtrlDataType":	"CTRLDATATYPE_ENVLV",
 								"DrcGain":	{
-									"EnvLv":	[0, 0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1],
-									"EnvLv_len":	13,
-									"DrcGain":	[0.00390625, 0.00390625, 0.00390625, 0.00390625, 0.00390625, 0.00390625, 0.00390625, 0.00390625, 0.00390625, 0.00390625, 0.00390625, 0.00390625, 0.00390625],
-									"DrcGain_len":	13,
+									"CtrlData":	[0, 0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1],
+									"DrcGain":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 									"Alpha":	[0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2],
-									"Alpha_len":	13,
-									"Clip":	[16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16],
-									"Clip_len":	13
+									"Clip":	[16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16]
 								},
 								"HiLight":	{
-									"EnvLv":	[0, 0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1],
-									"EnvLv_len":	13,
-									"Strength":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-									"Strength_len":	13
+									"CtrlData":	[0, 0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1],
+									"Strength":	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 								},
 								"LocalTMOSetting":	{
 									"LocalTMOData":	{
-										"EnvLv":	[0, 0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1],
-										"EnvLv_len":	13,
+										"CtrlData":	[0, 0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1],
 										"LocalWeit":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-										"LocalWeit_len":	13,
 										"GlobalContrast":	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-										"GlobalContrast_len":	13,
-										"LoLitContrast":	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-										"LoLitContrast_len":	13
+										"LoLitContrast":	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 									},
 									"curPixWeit":	0.376471,
 									"preFrameWeit":	1,
@@ -1332,14 +1347,13 @@
 								"ByPassThr":	0,
 								"Edge_Weit":	0.0627451,
 								"OutPutLongFrame":	0,
-								"IIR_frame":	16,
-								"Tolerance":	0,
+								"IIR_frame":	2,
 								"damp":	0.9
 							}
 						},
 						"cpsl":	{
 							"param":	{
-								"enable":	1,
+								"enable":	0,
 								"mode":	"RK_AIQ_OP_MODE_AUTO",
 								"force_gray":	1,
 								"light_src":	"LED",
@@ -1349,11 +1363,6 @@
 								"auto_sw_interval":	0,
 								"manual_on":	0,
 								"manual_strength":	100
-							}
-						},
-						"orb":	{
-							"param":	{
-								"orb_en":	0
 							}
 						},
 						"debayer":	{
@@ -2027,16 +2036,7 @@
 						"lut3d_calib":	{
 							"common":	{
 								"enable":	0,
-								"mode":	"CALIB_Lut3D_MODE_AUTO",
-								"gain_tolerance":	0.1,
-								"wbgain_tolerance":	1
-							},
-							"MLut3D":	{
-								"Table":	{
-									"look_up_table_r":	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-									"look_up_table_g":	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-									"look_up_table_b":	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-								}
+								"gain_tolerance":	0.1
 							},
 							"ALut3D":	{
 								"damp_en":	1,
@@ -2058,7 +2058,7 @@
 						},
 						"af":	{
 							"TuningPara":	{
-								"af_mode":	"CalibDbV2_AF_MODE_NOT_SET",
+								"af_mode":	"CalibDbV2_AFMODE_NOT_SET",
 								"win_h_offs":	0,
 								"win_v_offs":	0,
 								"win_h_size":	0,
@@ -2091,19 +2091,22 @@
 								},
 								"contrast_af":	{
 									"enable":	1,
-									"Afss":	"CalibDbV2_CAM_AFM_FSS_ADAPTIVE_RANGE",
-									"FullDir":	"CalibDbV2_CAM_AFM_ADAPTIVE_SEARCH",
-									"FullRangeTbl":	[0, 8, 16, 24, 32, 40, 48, 56, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-									"FullRangeTbl_len":	65,
-									"AdaptiveDir":	"CalibDbV2_CAM_AFM_ADAPTIVE_SEARCH",
-									"AdaptRangeTbl":	[0, 8, 16, 24, 32, 40, 48, 56, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-									"AdaptRangeTbl_len":	65,
-									"TrigThers":	[0],
+									"Afss":	"CalibDbV2_AFSS_ADAPTIVE_RANGE",
+									"FullDir":	"CalibDbV2_AF_ADAPTIVE_SEARCH",
+									"FullRangeTbl":	[0, 4, 64],
+									"AdaptiveDir":	"CalibDbV2_AF_ADAPTIVE_SEARCH",
+									"AdaptRangeTbl":	[0, 8, 16, 24, 32, 40, 48, 56, 64],
+									"AdaptRangeTbl_len":	9,
+									"FineSearchStep":	[4, 4, 4, 4, 4, 4, 4, 4, 4],
+									"FineSearchStep_len":	9,
+									"SkipCurveFitGain":	0,
+									"TrigThers":	[0.075],
 									"TrigThers_len":	1,
 									"TrigThersFv":	[0],
 									"TrigThersFv_len":	1,
-									"LumaTrigThers":	0,
-									"ExpTrigThers":	0,
+									"LumaTrigThers":	1,
+									"ExpTrigThers":	1,
+									"ChangedFrames":	10,
 									"StableThers":	0.02,
 									"StableFrames":	3,
 									"StableTime":	200,
@@ -2111,21 +2114,23 @@
 									"SceneDiffThers":	0,
 									"SceneDiffBlkThers":	0,
 									"CenterSceneDiffThers":	0,
-									"ValidMaxMinRatio":	0,
-									"ValidValueThers":	0,
+									"ValidMaxMinRatio":	0.1,
+									"ValidValueThers":	100,
 									"OutFocusValue":	50,
-									"OutFocusPos":	30,
+									"OutFocusPos":	65,
+									"LowLumaValue":	0,
+									"LowLumaPos":	64,
 									"WeightEnable":	0,
 									"Weight":	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 									"SearchPauseLumaEnable":	0,
 									"SearchPauseLumaThers":	0,
 									"SearchLumaStableFrames":	0,
 									"SearchLumaStableThers":	0,
-									"Stage1QuickFoundThers":	0,
-									"Stage2QuickFoundThers":	0,
-									"FlatValue":	0,
-									"PointLightLumaTh":	0,
-									"PointLightCntTh":	0,
+									"Stage1QuickFoundThers":	0.01,
+									"Stage2QuickFoundThers":	0.2,
+									"FlatValue":	10000,
+									"PointLightLumaTh":	4095,
+									"PointLightCntTh":	225,
 									"ZoomCfg":	{
 										"QuickFoundThersZoomIdx":	[0],
 										"QuickFoundThersZoomIdx_len":	1,
@@ -2149,19 +2154,22 @@
 								},
 								"video_contrast_af":	{
 									"enable":	0,
-									"Afss":	"CalibDbV2_CAM_AFM_FSS_ADAPTIVE_RANGE",
-									"FullDir":	"CalibDbV2_CAM_AFM_ADAPTIVE_SEARCH",
-									"FullRangeTbl":	[0],
-									"FullRangeTbl_len":	1,
-									"AdaptiveDir":	"CalibDbV2_CAM_AFM_ADAPTIVE_SEARCH",
-									"AdaptRangeTbl":	[0],
-									"AdaptRangeTbl_len":	1,
-									"TrigThers":	[0],
+									"Afss":	"CalibDbV2_AFSS_ADAPTIVE_RANGE",
+									"FullDir":	"CalibDbV2_AF_ADAPTIVE_SEARCH",
+									"FullRangeTbl":	[0, 4, 64],
+									"AdaptiveDir":	"CalibDbV2_AF_ADAPTIVE_SEARCH",
+									"AdaptRangeTbl":	[0, 8, 16, 24, 32, 40, 48, 56, 64],
+									"AdaptRangeTbl_len":	9,
+									"FineSearchStep":	[4, 4, 4, 4, 4, 4, 4, 4, 4],
+									"FineSearchStep_len":	9,
+									"SkipCurveFitGain":	0,
+									"TrigThers":	[0.075],
 									"TrigThers_len":	1,
 									"TrigThersFv":	[0],
 									"TrigThersFv_len":	1,
-									"LumaTrigThers":	0,
-									"ExpTrigThers":	0,
+									"LumaTrigThers":	1,
+									"ExpTrigThers":	1,
+									"ChangedFrames":	10,
 									"StableThers":	0,
 									"StableFrames":	0,
 									"StableTime":	0,
@@ -2173,6 +2181,8 @@
 									"ValidValueThers":	0,
 									"OutFocusValue":	0,
 									"OutFocusPos":	0,
+									"LowLumaValue":	0,
+									"LowLumaPos":	64,
 									"WeightEnable":	0,
 									"Weight":	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 									"SearchPauseLumaEnable":	0,
@@ -2214,28 +2224,57 @@
 									"enable":	0,
 									"pdVsCdDebug":	0,
 									"pdDumpDebug":	0,
+									"pdDumpMaxFrm":	300,
 									"pdDataBit":	0,
 									"pdBlkLevel":	0,
 									"pdSearchRadius":	0,
 									"pdMirrorInCalib":	0,
 									"pdVsImgoutMirror":	0,
+									"pdLRInDiffLine":	0,
 									"pdWidth":	0,
 									"pdHeight":	0,
+									"pdVerBinning":	0,
+									"pdFrmInValid":	1,
+									"pdDgainValid":	0,
+									"pdGainMapNormEn":	0,
+									"pdConfdMode":	0,
+									"pdNoiseSn":	0.207,
+									"pdNoiseRn":	[0.14, 2.8],
+									"pdNoisePn":	0.25,
+									"pdSatValRatio":	0.92,
+									"pdSatCntRatio":	0.06,
+									"pdDiscardRegionEn":	0,
+									"pdLessTextureRatio":	0.25,
+									"pdTargetOffset":	0,
+									"pdCalibInf":	{
+										"pdGainMapW":	32,
+										"pdGainMapH":	32,
+										"pdDccMapW":	32,
+										"pdDccMapH":	32
+									},
 									"pdConfdMwinFactor":	0,
+									"pdCenterMinFv":	0,
+									"pdCenterMinRatio":	0,
+									"pdHighlightRatio":	0.1,
 									"pdStepRatio":	[0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
 									"pdStepDefocus":	[0, 0, 0, 0, 0, 0, 0],
 									"pdIsoPara":	[{
 											"iso":	0,
-											"pdNoiseFactor":	0,
+											"pdConfdRatio0":	1,
 											"pdConfdRatio1":	0,
 											"pdConfdRatio2":	0,
-											"pdNoiseBias":	0,
+											"pdConfdRatio3":	1,
 											"pdConfdThresh":	0,
-											"defocusPdThresh":	0,
+											"convergedInfPdThresh":	12,
+											"convergedMacPdThresh":	12,
+											"defocusInfPdThresh":	12,
+											"defocusMacPdThresh":	12,
 											"stablePdRatio":	0,
 											"stablePdOffset":	0,
 											"stableCntRatio":	0,
 											"noconfCntThresh":	0,
+											"roiBlkCntW":	3,
+											"roiBlkCntH":	3,
 											"fineSearchTbl":	[{
 													"confidence":	0,
 													"range":	0,
@@ -2246,6 +2285,7 @@
 									"pdIsoPara_len":	1
 								},
 								"vcmcfg":	{
+									"max_logical_pos":	64,
 									"start_current":	-1,
 									"rated_current":	-1,
 									"step_mode":	-1,
@@ -2284,7 +2324,8 @@
 									"searchEmax":	0,
 									"searchEavg":	0,
 									"IsZoomFocusRec":	0,
-									"ZoomInfoDir":	"/data/"
+									"ZoomInfoDir":	"/data/",
+									"ZoomInitIndex":	0
 								},
 								"measiso_cfg":	[{
 										"iso":	50,
@@ -4843,6 +4884,22 @@
 										"Tuning_ISO_len":	13
 									}],
 								"Setting_len":	2
+							}
+						},
+						"csm":	{
+							"TuningPara":	{
+								"op_mode":	"RK_AIQ_OP_MODE_AUTO",
+								"full_range":	1,
+								"y_offset":	0,
+								"c_offset":	0,
+								"coeff":	[0.299, 0.587, 0.114, -0.169, -0.331, 0.5, 0.5, -0.419, -0.081]
+							}
+						},
+						"cgc":	{
+							"TuningPara":	{
+								"op_mode":	"RK_AIQ_OP_MODE_AUTO",
+								"cgc_ratio_en":	0,
+								"cgc_yuv_limit":	0
 							}
 						}
 					}
