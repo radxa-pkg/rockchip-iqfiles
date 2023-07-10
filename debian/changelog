@@ -1,3 +1,14 @@
+rockchip-iqfiles (0.1.7) jammy; urgency=medium
+
+  [ Ken Wang ]
+  * update rpi camera v2 iq file
+  * add rpi camera v1p3 iq file
+
+  [ ZHANG Yuntian ]
+  * Update CI
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Mon, 10 Jul 2023 04:11:47 +0000
+
 rockchip-iqfiles (0.1.6) stable; urgency=medium
 
   * Update Radxa Camera 4K profile for RK3588
