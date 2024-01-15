@@ -1,3 +1,20 @@
+rockchip-iqfiles (0.1.11) jammy; urgency=medium
+
+  [ Ken Wang ]
+  * add rpi camera v1p3 iq file
+
+  [ dependabot[bot] ]
+  * Bump actions/upload-artifact from 3 to 4
+
+  [ dependabot[bot] ]
+  * Bump actions/download-artifact from 3 to 4
+
+  [ Chuang Ma ]
+  * Add Radxa Camera 8M iq file
+  * Add Radxa Camera 8M xml file
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Mon, 15 Jan 2024 08:25:21 +0000
+
 rockchip-iqfiles (0.1.10) jammy; urgency=medium
 
   [ Ken Wang ]
