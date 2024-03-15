@@ -1,3 +1,13 @@
+rockchip-iqfiles (0.1.13) jammy; urgency=medium
+
+  [ dependabot[bot] ]
+  * Bump softprops/action-gh-release from 1 to 2
+
+  [ Alvin Xie ]
+  * update imx219 files for 3280*2464 resolution
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Fri, 15 Mar 2024 10:08:53 +0000
+
 rockchip-iqfiles (0.1.12) jammy; urgency=medium
 
   [ ZHANG Yuntian ]
