@@ -4,12 +4,12 @@ set -e
 #DEBHELPER#
 
 case $1 in
-	remove)
-		for i in /usr/share/rockchip-iqfiles/*
-		do
-			rm -f "/etc/iqfiles/$(basename "$i")"
-		done
-		;;
+    remove)
+        for i in /usr/share/rockchip-iqfiles/*
+        do
+            rm -f "/etc/iqfiles/$(basename "$i")"
+        done
+        ;;
 esac
 
 exit 0
