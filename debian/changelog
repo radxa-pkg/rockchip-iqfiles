@@ -1,3 +1,18 @@
+rockchip-iqfiles (0.2.0) jammy; urgency=medium
+
+  [ Ken Wang ]
+  * feat: add rockchip-iqfiles-rk2312 iqfiles
+
+  [ CodeChenL ]
+  * feat: packaged rockchip-iqfiles-rk2312
+  * fix: using spaces instead of tabs
+
+  [ ZHANG Yuntian ]
+  * refactor: split iqfiles into multiple packages
+  * ci: sync with rsetup
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 16 Apr 2024 16:36:17 +0800
+
 rockchip-iqfiles (0.1.13) jammy; urgency=medium
 
   [ dependabot[bot] ]
