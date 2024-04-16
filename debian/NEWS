@@ -1,0 +1,9 @@
+rockchip-iqfiles (0.2.0) jammy; urgency=medium
+
+  We have splitted the existing rockchip-iqfiles packages into 2 SoC specific
+  packages: rockchip-iqfiles-rk3399 and rockchip-iqfiles-rk3588.
+
+  Please try manually removing the old package and installing the new ones if
+  you encounter any upgrade issue.
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 16 Apr 2024 16:36:17 +0800
