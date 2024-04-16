@@ -3,7 +3,7 @@ set -e
 
 case $1 in
     configure)
-        for i in /usr/share/rockchip-iqfiles-rk356x/*
+        for i in /usr/share/rockchip-iqfiles-rk2312/*
         do
             ln -fs "$i" "/etc/iqfiles/$(basename "$i")"
         done

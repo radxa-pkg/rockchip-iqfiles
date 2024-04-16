@@ -3,6 +3,7 @@
 /files
 /rockchip-iqfiles
 /rockchip-iqfiles-rk356x
+/rockchip-iqfiles-rk2312
 /*.debhelper.log
 /*.postrm.debhelper
 /*.substvars
