@@ -1,3 +1,10 @@
+rockchip-iqfiles (0.2.1) jammy; urgency=medium
+
+  [ Ken Wang ]
+  * update rpi camera v13 json
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 17 Apr 2024 09:29:33 +0000
+
 rockchip-iqfiles (0.2.0) jammy; urgency=medium
 
   [ Ken Wang ]
