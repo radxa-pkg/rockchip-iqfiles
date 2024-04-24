@@ -57,7 +57,7 @@ clean-deb:
 #
 .PHONY: dch
 dch: debian/changelog
-	EDITOR=true gbp dch --commit --debian-branch=main --release --dch-opt=--upstream
+	EDITOR=true gbp dch --ignore-branch --multimaint-merge --commit --release --dch-opt=--upstream
 
 .PHONY: deb
 deb: debian
@@ -65,4 +65,4 @@ deb: debian
 
 .PHONY: release
 release:
-	gh workflow run .github/workflows/new_version.yml
+	gh workflow run .github/workflows/new_version.yml --ref $(shell git branch --show-current)
