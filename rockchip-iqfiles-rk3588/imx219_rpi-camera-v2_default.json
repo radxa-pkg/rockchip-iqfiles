@@ -134,7 +134,7 @@
 								"HistStatsMode":	"CAM_HISTV2_MODE_Y",
 								"RawStatsMode":	"CAM_RAWSTATSV2_MODE_Y",
 								"YRangeMode":	"CAM_YRANGEV2_MODE_FULL",
-								"AecGridWeight":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 5, 8, 6, 6, 6, 6, 6, 2, 1, 1, 1, 1, 1, 1, 2, 5, 8, 8, 8, 8, 8, 8, 2, 1, 1, 1, 1, 1, 1, 2, 5, 5, 8, 8, 8, 8, 5, 2, 1, 1, 1, 1, 1, 1, 2, 8, 10, 20, 20, 20, 20, 10, 2, 1, 1, 1, 1, 1, 1, 2, 8, 10, 20, 20, 20, 20, 10, 2, 1, 1, 1, 1, 1, 1, 2, 8, 10, 10, 10, 10, 10, 10, 2, 1, 1, 1, 1, 1, 1, 2, 8, 10, 10, 10, 10, 10, 10, 2, 1, 1, 1, 1, 1, 1, 1, 1, 10, 10, 10, 10, 10, 8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 8, 8, 8, 8, 8, 8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+								"AecGridWeight":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 2, 2, 3, 3, 4, 3, 3, 2, 2, 1, 1, 1, 1, 1, 1, 2, 2, 3, 3, 4, 3, 3, 2, 2, 1, 1, 1, 1, 1, 2, 3, 3, 4, 4, 5, 4, 4, 3, 3, 2, 1, 1, 1, 1, 1, 2, 2, 3, 3, 4, 3, 3, 2, 2, 1, 1, 1, 1, 1, 1, 2, 2, 3, 3, 4, 3, 3, 2, 2, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 								"AecManualCtrl":	{
 									"LinearAE":	{
 										"ManualTimeEn":	1,
@@ -168,8 +168,8 @@
 								},
 								"AecDelay":	{
 									"DelayType":	"DELAY_TYPE_FRAME",
-									"BlackDelay":	0,
-									"WhiteDelay":	0
+									"BlackDelay":	2,
+									"WhiteDelay":	2
 								},
 								"AecFrameRateMode":	{
 									"isFpsFix":	0,
@@ -448,7 +448,7 @@
 								"lscBypassEnable":	0,
 								"uvDetectionEnable":	1,
 								"xyDetectionEnable":	1,
-								"yuvDetectionEnable":	0,
+								"yuvDetectionEnable":	1,
 								"lsUsedForYuvDet":	["A", "CWF", "D50", "D65", "D75", "HZ", "TL84"],
 								"lsUsedForYuvDet_len":	7,
 								"blkStatisticsEnable":	1,
@@ -944,8 +944,8 @@
 									"sensorWbGain":	[1, 1, 1, 1]
 								},
 								"wbGainOffset":	{
-									"enable":	0,
-									"offset":	[0, 0, 0, 0]
+									"enable":	1,
+									"offset":	[0, 0, 0, 0.15]
 								}
 							}
 						},
@@ -993,7 +993,7 @@
 								"y_alpha_curve":	[0, 64, 128, 192, 256, 320, 384, 448, 512, 576, 640, 704, 768, 832, 896, 960, 1024],
 								"gain_alphaScale_curve":	{
 									"gain":	[1, 2, 4, 8, 16, 32, 64, 128, 256],
-									"scale":	[0.92, 0.9, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8]
+									"scale":	[0.95, 0.9, 0.85, 0.85, 0.8, 0.7, 0.7, 0.7, 0.7]
 								}
 							},
 							"TuningPara":	{
@@ -1354,7 +1354,7 @@
 						"agamma_calib_v11":	{
 							"GammaTuningPara":	{
 								"Gamma_en":	1,
-								"Gamma_out_offset":	0,
+								"Gamma_out_offset":	30,
 								"Gamma_curve":	[0, 6, 11, 17, 22, 28, 33, 39, 44, 55, 66, 77, 88, 109, 130, 150, 170, 210, 248, 286, 323, 393, 460, 525, 586, 702, 809, 909, 1002, 1172, 1323, 1461, 1587, 1810, 2003, 2173, 2325, 2589, 2812, 3010, 3191, 3355, 3499, 3624, 3736, 3836, 3927, 4012, 4095]
 							}
 						},
@@ -1404,7 +1404,7 @@
 									"EnhanceData":	{
 										"CtrlData":	[0, 0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1],
 										"enhance_value":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-										"enhance_chroma":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+										"enhance_chroma":	[1, 1, 1, 1, 1, 1, 1, 1.05, 1.05, 1.1, 1.1, 1.1, 1.1]
 									}
 								},
 								"hist_setting":	{
@@ -1628,7 +1628,7 @@
 								"enable":	1,
 								"brightness":	128,
 								"contrast":	128,
-								"saturation":	118,
+								"saturation":	138,
 								"hue":	128
 							}
 						},
@@ -1672,7 +1672,7 @@
 										"tableUsed_len":	2,
 										"gains":	[1, 4, 6, 8],
 										"gains_len":	4,
-										"vig":	[95, 90, 85, 70],
+										"vig":	[90, 85, 80, 70],
 										"vig_len":	4
 									}, {
 										"usedForCase":	0,
@@ -1686,7 +1686,7 @@
 										"tableUsed_len":	2,
 										"gains":	[1, 4, 6, 8],
 										"gains_len":	4,
-										"vig":	[95, 90, 85, 70],
+										"vig":	[90, 85, 80, 70],
 										"vig_len":	4
 									}, {
 										"usedForCase":	0,
@@ -1700,7 +1700,7 @@
 										"tableUsed_len":	2,
 										"gains":	[1, 4, 6, 8],
 										"gains_len":	4,
-										"vig":	[95, 90, 85, 70],
+										"vig":	[90, 85, 80, 70],
 										"vig_len":	4
 									}, {
 										"usedForCase":	0,
@@ -1714,7 +1714,7 @@
 										"tableUsed_len":	2,
 										"gains":	[1, 4, 6, 8],
 										"gains_len":	4,
-										"vig":	[95, 90, 85, 70],
+										"vig":	[90, 85, 80, 70],
 										"vig_len":	4
 									}, {
 										"usedForCase":	0,
@@ -1728,7 +1728,7 @@
 										"tableUsed_len":	2,
 										"gains":	[1, 4, 6, 8],
 										"gains_len":	4,
-										"vig":	[95, 90, 85, 70],
+										"vig":	[90, 85, 80, 70],
 										"vig_len":	4
 									}, {
 										"usedForCase":	0,
@@ -1742,7 +1742,7 @@
 										"tableUsed_len":	2,
 										"gains":	[1, 4, 6, 8],
 										"gains_len":	4,
-										"vig":	[95, 90, 85, 70],
+										"vig":	[90, 85, 80, 70],
 										"vig_len":	4
 									}, {
 										"usedForCase":	0,
@@ -1756,7 +1756,7 @@
 										"tableUsed_len":	2,
 										"gains":	[1, 4, 6, 8],
 										"gains_len":	4,
-										"vig":	[95, 90, 85, 70],
+										"vig":	[90, 85, 80, 70],
 										"vig_len":	4
 									}],
 								"illAll_len":	7
@@ -2371,7 +2371,7 @@
 										"Tuning_ISO":	[{
 												"iso":	50,
 												"gauss_guide":	0,
-												"filter_strength":	0.5,
+												"filter_strength":	0.9,
 												"edgesofts":	1,
 												"ratio":	0.01,
 												"weight":	1,
@@ -2382,7 +2382,7 @@
 											}, {
 												"iso":	100,
 												"gauss_guide":	0,
-												"filter_strength":	0.5,
+												"filter_strength":	1.5,
 												"edgesofts":	1,
 												"ratio":	0.01,
 												"weight":	1,
@@ -2393,7 +2393,7 @@
 											}, {
 												"iso":	200,
 												"gauss_guide":	0,
-												"filter_strength":	0.5,
+												"filter_strength":	2,
 												"edgesofts":	2,
 												"ratio":	0.01,
 												"weight":	1,
@@ -2404,7 +2404,7 @@
 											}, {
 												"iso":	400,
 												"gauss_guide":	0,
-												"filter_strength":	0.5,
+												"filter_strength":	2.5,
 												"edgesofts":	1,
 												"ratio":	0.01,
 												"weight":	1,
@@ -2415,7 +2415,7 @@
 											}, {
 												"iso":	800,
 												"gauss_guide":	0,
-												"filter_strength":	1,
+												"filter_strength":	3,
 												"edgesofts":	2,
 												"ratio":	0.5,
 												"weight":	1,
@@ -2426,7 +2426,7 @@
 											}, {
 												"iso":	1600,
 												"gauss_guide":	1,
-												"filter_strength":	0.65,
+												"filter_strength":	4,
 												"edgesofts":	2,
 												"ratio":	0.01,
 												"weight":	1,
@@ -2437,7 +2437,7 @@
 											}, {
 												"iso":	3200,
 												"gauss_guide":	1,
-												"filter_strength":	1,
+												"filter_strength":	5,
 												"edgesofts":	2,
 												"ratio":	0.01,
 												"weight":	1,
@@ -2871,7 +2871,7 @@
 										"Tuning_ISO":	[{
 												"iso":	50,
 												"thumbds":	8,
-												"lo_enable":	0,
+												"lo_enable":	1,
 												"hi_enable":	1,
 												"lo_med_en":	1,
 												"lo_gsbay_en":	1,
@@ -2889,7 +2889,7 @@
 											}, {
 												"iso":	100,
 												"thumbds":	8,
-												"lo_enable":	0,
+												"lo_enable":	1,
 												"hi_enable":	1,
 												"lo_med_en":	1,
 												"lo_gsbay_en":	1,
@@ -2907,7 +2907,7 @@
 											}, {
 												"iso":	200,
 												"thumbds":	8,
-												"lo_enable":	0,
+												"lo_enable":	1,
 												"hi_enable":	1,
 												"lo_med_en":	1,
 												"lo_gsbay_en":	1,
@@ -3568,7 +3568,7 @@
 													"hi_lumaPoint":	[0, 32, 64, 128, 192, 256],
 													"hi_ratio":	[1, 1, 1, 1, 1, 1]
 												},
-												"low_bf1":	0.2,
+												"low_bf1":	0.5,
 												"low_bf2":	0.5,
 												"low_thred_adj":	0.6,
 												"low_peak_supress":	0.5,
@@ -3588,7 +3588,7 @@
 												"hi_min_adj":	0.9,
 												"hi_edge_thed":	100,
 												"high_direction_weight":	[1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5],
-												"rnr_strength":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+												"rnr_strength":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6]
 											}, {
 												"iso":	100,
 												"ynr_bft3x3_bypass":	0,
@@ -3606,8 +3606,8 @@
 													"hi_lumaPoint":	[0, 32, 64, 128, 192, 256],
 													"hi_ratio":	[1, 1, 1, 1, 1, 1]
 												},
-												"low_bf1":	0.3,
-												"low_bf2":	0.5,
+												"low_bf1":	0.7,
+												"low_bf2":	0.8,
 												"low_thred_adj":	0.7,
 												"low_peak_supress":	0.5,
 												"low_edge_adj_thresh":	7,
@@ -3626,7 +3626,7 @@
 												"hi_min_adj":	0.9,
 												"hi_edge_thed":	100,
 												"high_direction_weight":	[1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5],
-												"rnr_strength":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+												"rnr_strength":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6]
 											}, {
 												"iso":	200,
 												"ynr_bft3x3_bypass":	0,
@@ -3664,7 +3664,7 @@
 												"hi_min_adj":	0.9,
 												"hi_edge_thed":	100,
 												"high_direction_weight":	[1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5],
-												"rnr_strength":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+												"rnr_strength":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6]
 											}, {
 												"iso":	400,
 												"ynr_bft3x3_bypass":	0,
@@ -3702,7 +3702,7 @@
 												"hi_min_adj":	0.9,
 												"hi_edge_thed":	100,
 												"high_direction_weight":	[1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5],
-												"rnr_strength":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+												"rnr_strength":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6]
 											}, {
 												"iso":	800,
 												"ynr_bft3x3_bypass":	0,
@@ -3740,7 +3740,7 @@
 												"hi_min_adj":	0.9,
 												"hi_edge_thed":	100,
 												"high_direction_weight":	[1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5],
-												"rnr_strength":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+												"rnr_strength":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6]
 											}, {
 												"iso":	1600,
 												"ynr_bft3x3_bypass":	0,
@@ -5121,360 +5121,360 @@
 							"Version":	"V4",
 							"TuningPara":	{
 								"enable":	1,
-								"kernel_sigma_enable":	1,
+								"kernel_sigma_enable":	0,
 								"Setting":	[{
 										"SNR_Mode":	"LSNR",
 										"Sensor_Mode":	"lcg",
 										"Tuning_ISO":	[{
 												"iso":	50,
-												"pbf_gain":	0.3,
-												"pbf_ratio":	0.5,
-												"pbf_add":	0,
-												"gaus_ratio":	0,
-												"sharp_ratio":	5,
-												"bf_gain":	0.3,
-												"bf_ratio":	0.5,
-												"bf_add":	0,
-												"luma_para":	{
-													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[8, 12, 16, 16, 24, 20, 16, 16],
-													"hf_clip":	[80, 96, 128, 160, 192, 160, 100, 80],
-													"local_sharp_strength":	[1023, 1023, 1023, 1023, 1023, 1023, 1023, 1023]
-												},
-												"kernel_para":	{
-													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
-													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
-												},
-												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
-												}
-											}, {
-												"iso":	100,
-												"pbf_gain":	0.4,
-												"pbf_ratio":	0.5,
-												"pbf_add":	0,
-												"gaus_ratio":	0,
-												"sharp_ratio":	5,
-												"bf_gain":	0.4,
-												"bf_ratio":	0.5,
-												"bf_add":	0,
-												"luma_para":	{
-													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[12, 16, 20, 24, 28, 24, 16, 16],
-													"hf_clip":	[80, 96, 128, 160, 192, 160, 100, 0],
-													"local_sharp_strength":	[512, 512, 512, 512, 512, 512, 512, 512]
-												},
-												"kernel_para":	{
-													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
-													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
-												},
-												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
-												}
-											}, {
-												"iso":	200,
 												"pbf_gain":	0.5,
-												"pbf_ratio":	0.5,
-												"pbf_add":	0,
-												"gaus_ratio":	0,
-												"sharp_ratio":	5,
-												"bf_gain":	0.5,
-												"bf_ratio":	0.5,
-												"bf_add":	0,
-												"luma_para":	{
-													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[24, 32, 40, 48, 56, 48, 48, 40],
-													"hf_clip":	[80, 96, 128, 160, 192, 160, 128, 0],
-													"local_sharp_strength":	[512, 512, 512, 512, 512, 512, 512, 512]
-												},
-												"kernel_para":	{
-													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
-													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
-												},
-												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
-												}
-											}, {
-												"iso":	400,
-												"pbf_gain":	0.4,
-												"pbf_ratio":	0.6,
-												"pbf_add":	0,
-												"gaus_ratio":	0,
-												"sharp_ratio":	5,
-												"bf_gain":	0.4,
-												"bf_ratio":	0.6,
-												"bf_add":	0,
-												"luma_para":	{
-													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[32, 40, 48, 56, 56, 48, 32, 32],
-													"hf_clip":	[80, 96, 128, 160, 192, 160, 100, 80],
-													"local_sharp_strength":	[320, 320, 320, 320, 320, 320, 320, 320]
-												},
-												"kernel_para":	{
-													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
-													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
-												},
-												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
-												}
-											}, {
-												"iso":	800,
-												"pbf_gain":	0.5,
-												"pbf_ratio":	0.7,
-												"pbf_add":	0,
-												"gaus_ratio":	0.2,
-												"sharp_ratio":	5,
-												"bf_gain":	0.5,
-												"bf_ratio":	0.7,
-												"bf_add":	0,
-												"luma_para":	{
-													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[40, 48, 56, 56, 48, 40, 32, 32],
-													"hf_clip":	[80, 96, 128, 160, 192, 160, 100, 0],
-													"local_sharp_strength":	[320, 320, 320, 320, 320, 320, 320, 320]
-												},
-												"kernel_para":	{
-													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
-													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
-												},
-												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
-												}
-											}, {
-												"iso":	1600,
-												"pbf_gain":	0.7,
-												"pbf_ratio":	0.8,
-												"pbf_add":	0,
-												"gaus_ratio":	0.4,
-												"sharp_ratio":	4,
-												"bf_gain":	0.7,
-												"bf_ratio":	0.8,
-												"bf_add":	0,
-												"luma_para":	{
-													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[40, 48, 56, 56, 48, 40, 36, 32],
-													"hf_clip":	[48, 80, 120, 140, 160, 140, 100, 0],
-													"local_sharp_strength":	[256, 256, 256, 256, 256, 256, 256, 256]
-												},
-												"kernel_para":	{
-													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
-													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
-												},
-												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
-												}
-											}, {
-												"iso":	3200,
-												"pbf_gain":	0.8,
-												"pbf_ratio":	0.8,
-												"pbf_add":	0,
-												"gaus_ratio":	0.5,
-												"sharp_ratio":	4,
-												"bf_gain":	0.8,
-												"bf_ratio":	0.8,
-												"bf_add":	0,
-												"luma_para":	{
-													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[40, 48, 56, 56, 48, 40, 32, 32],
-													"hf_clip":	[32, 64, 100, 120, 140, 120, 100, 0],
-													"local_sharp_strength":	[256, 256, 256, 256, 256, 256, 256, 256]
-												},
-												"kernel_para":	{
-													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
-													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
-												},
-												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
-												}
-											}, {
-												"iso":	6400,
-												"pbf_gain":	1,
-												"pbf_ratio":	0.8,
-												"pbf_add":	0,
-												"gaus_ratio":	0.5,
-												"sharp_ratio":	4,
-												"bf_gain":	1,
-												"bf_ratio":	0.8,
-												"bf_add":	0,
-												"luma_para":	{
-													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[40, 48, 56, 56, 48, 40, 32, 32],
-													"hf_clip":	[32, 64, 100, 120, 160, 120, 100, 0],
-													"local_sharp_strength":	[200, 200, 200, 200, 200, 200, 200, 200]
-												},
-												"kernel_para":	{
-													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
-													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
-												},
-												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
-												}
-											}, {
-												"iso":	12800,
-												"pbf_gain":	1,
-												"pbf_ratio":	0.9,
-												"pbf_add":	0,
-												"gaus_ratio":	0.5,
-												"sharp_ratio":	4,
-												"bf_gain":	1,
-												"bf_ratio":	0.9,
-												"bf_add":	0,
-												"luma_para":	{
-													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[40, 48, 56, 56, 48, 40, 32, 32],
-													"hf_clip":	[32, 64, 86, 100, 120, 100, 80, 0],
-													"local_sharp_strength":	[200, 200, 200, 200, 200, 200, 200, 200]
-												},
-												"kernel_para":	{
-													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
-													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
-												},
-												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
-												}
-											}, {
-												"iso":	25600,
-												"pbf_gain":	1.5,
-												"pbf_ratio":	0.9,
-												"pbf_add":	0,
-												"gaus_ratio":	0.6,
-												"sharp_ratio":	3,
-												"bf_gain":	1.5,
-												"bf_ratio":	0.9,
-												"bf_add":	0,
-												"luma_para":	{
-													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[40, 48, 56, 56, 48, 40, 32, 32],
-													"hf_clip":	[32, 48, 64, 80, 120, 100, 80, 0],
-													"local_sharp_strength":	[200, 200, 200, 200, 200, 200, 200, 200]
-												},
-												"kernel_para":	{
-													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
-													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
-												},
-												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
-												}
-											}, {
-												"iso":	51200,
-												"pbf_gain":	1.5,
-												"pbf_ratio":	0.9,
+												"pbf_ratio":	0.3,
 												"pbf_add":	1,
-												"gaus_ratio":	0.7,
-												"sharp_ratio":	3,
-												"bf_gain":	1.5,
-												"bf_ratio":	0.9,
+												"gaus_ratio":	0,
+												"sharp_ratio":	8,
+												"bf_gain":	2,
+												"bf_ratio":	1,
 												"bf_add":	1,
 												"luma_para":	{
 													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
 													"luma_sigma":	[8, 12, 16, 16, 24, 20, 16, 16],
-													"hf_clip":	[32, 64, 80, 100, 120, 100, 80, 0],
-													"local_sharp_strength":	[200, 200, 200, 200, 200, 200, 200, 200]
+													"hf_clip":	[32, 64, 128, 160, 192, 160, 128, 64],
+													"local_sharp_strength":	[64, 128, 256, 256, 256, 256, 128, 64]
 												},
 												"kernel_para":	{
 													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
 													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
 												},
 												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
 												}
 											}, {
-												"iso":	102400,
-												"pbf_gain":	1.5,
-												"pbf_ratio":	1,
+												"iso":	100,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0.4,
+												"pbf_add":	1,
+												"gaus_ratio":	0,
+												"sharp_ratio":	6.5,
+												"bf_gain":	3,
+												"bf_ratio":	1,
+												"bf_add":	1,
+												"luma_para":	{
+													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
+													"luma_sigma":	[12, 16, 20, 24, 28, 24, 20, 20],
+													"hf_clip":	[32, 64, 128, 160, 192, 160, 128, 64],
+													"local_sharp_strength":	[64, 128, 256, 256, 256, 256, 128, 64]
+												},
+												"kernel_para":	{
+													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
+												},
+												"kernel_sigma":	{
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
+												}
+											}, {
+												"iso":	200,
+												"pbf_gain":	1.0,
+												"pbf_ratio":	0.5,
+												"pbf_add":	1,
+												"gaus_ratio":	0,
+												"sharp_ratio":	5,
+												"bf_gain":	3,
+												"bf_ratio":	1,
+												"bf_add":	1,
+												"luma_para":	{
+													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
+													"luma_sigma":	[24, 32, 40, 48, 56, 48, 48, 40],
+													"hf_clip":	[32, 64, 128, 160, 192, 160, 128, 64],
+													"local_sharp_strength":	[64, 128, 128, 256, 256, 256, 128, 64]
+												},
+												"kernel_para":	{
+													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
+												},
+												"kernel_sigma":	{
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
+												}
+											}, {
+												"iso":	400,
+												"pbf_gain":	1.1,
+												"pbf_ratio":	0.5,
+												"pbf_add":	1,
+												"gaus_ratio":	0,
+												"sharp_ratio":	4.5,
+												"bf_gain":	4,
+												"bf_ratio":	1,
+												"bf_add":	1,
+												"luma_para":	{
+													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
+													"luma_sigma":	[32, 40, 48, 56, 64, 56, 48, 40],
+													"hf_clip":	[64, 96, 128, 160, 192, 160, 128, 0],
+													"local_sharp_strength":	[32, 64, 96, 128, 256, 256, 128, 64]
+												},
+												"kernel_para":	{
+													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
+												},
+												"kernel_sigma":	{
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
+												}
+											}, {
+												"iso":	800,
+												"pbf_gain":	1.2,
+												"pbf_ratio":	0.4,
+												"pbf_add":	1,
+												"gaus_ratio":	0.5,
+												"sharp_ratio":	4,
+												"bf_gain":	4,
+												"bf_ratio":	1,
+												"bf_add":	1,
+												"luma_para":	{
+													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
+													"luma_sigma":	[40, 48, 56, 64, 80, 64, 56, 48],
+													"hf_clip":	[64, 96, 128, 160, 192, 160, 128, 0],
+													"local_sharp_strength":	[32, 64, 96, 128, 256, 256, 128, 64]
+												},
+												"kernel_para":	{
+													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
+												},
+												"kernel_sigma":	{
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
+												}
+											}, {
+												"iso":	1600,
+												"pbf_gain":	1.2,
+												"pbf_ratio":	0.5,
+												"pbf_add":	1,
+												"gaus_ratio":	0.5,
+												"sharp_ratio":	4,
+												"bf_gain":	4,
+												"bf_ratio":	1,
+												"bf_add":	32,
+												"luma_para":	{
+													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
+													"luma_sigma":	[48, 56, 64, 80, 96, 80, 64, 56],
+													"hf_clip":	[64, 96, 128, 160, 192, 160, 128, 0],
+													"local_sharp_strength":	[32, 64, 96, 128, 128, 128, 64, 32]
+												},
+												"kernel_para":	{
+													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
+												},
+												"kernel_sigma":	{
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
+												}
+											}, {
+												"iso":	3200,
+												"pbf_gain":	1.8,
+												"pbf_ratio":	0.9,
+												"pbf_add":	1,
+												"gaus_ratio":	0.8,
+												"sharp_ratio":	5,
+												"bf_gain":	4,
+												"bf_ratio":	1,
+												"bf_add":	32,
+												"luma_para":	{
+													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
+													"luma_sigma":	[48, 56, 64, 80, 96, 80, 64, 56],
+													"hf_clip":	[64, 96, 128, 160, 192, 160, 128, 0],
+													"local_sharp_strength":	[32, 64, 96, 128, 256, 256, 128, 64]
+												},
+												"kernel_para":	{
+													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
+												},
+												"kernel_sigma":	{
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
+												}
+											}, {
+												"iso":	6400,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0.3,
 												"pbf_add":	1,
 												"gaus_ratio":	1,
 												"sharp_ratio":	4,
-												"bf_gain":	1.5,
+												"bf_gain":	4,
 												"bf_ratio":	1,
-												"bf_add":	2,
+												"bf_add":	32,
 												"luma_para":	{
 													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[40, 48, 56, 56, 48, 40, 32, 32],
-													"hf_clip":	[32, 64, 80, 100, 120, 100, 80, 0],
-													"local_sharp_strength":	[200, 200, 200, 200, 200, 200, 200, 200]
+													"luma_sigma":	[48, 56, 64, 80, 96, 80, 64, 56],
+													"hf_clip":	[64, 96, 128, 160, 192, 160, 128, 0],
+													"local_sharp_strength":	[128, 128, 128, 128, 128, 128, 128, 128]
 												},
 												"kernel_para":	{
 													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
 													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
 												},
 												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
+												}
+											}, {
+												"iso":	12800,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0.4,
+												"pbf_add":	1,
+												"gaus_ratio":	1,
+												"sharp_ratio":	8,
+												"bf_gain":	4,
+												"bf_ratio":	1,
+												"bf_add":	32,
+												"luma_para":	{
+													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
+													"luma_sigma":	[48, 56, 64, 80, 96, 80, 64, 56],
+													"hf_clip":	[64, 96, 128, 160, 192, 160, 128, 0],
+													"local_sharp_strength":	[128, 128, 128, 128, 128, 128, 128, 128]
+												},
+												"kernel_para":	{
+													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
+												},
+												"kernel_sigma":	{
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
+												}
+											}, {
+												"iso":	25600,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0.4,
+												"pbf_add":	1,
+												"gaus_ratio":	1,
+												"sharp_ratio":	8,
+												"bf_gain":	4,
+												"bf_ratio":	1,
+												"bf_add":	32,
+												"luma_para":	{
+													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
+													"luma_sigma":	[48, 56, 64, 80, 96, 80, 64, 56],
+													"hf_clip":	[64, 96, 128, 160, 192, 160, 128, 0],
+													"local_sharp_strength":	[128, 128, 128, 128, 128, 128, 128, 128]
+												},
+												"kernel_para":	{
+													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
+												},
+												"kernel_sigma":	{
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
+												}
+											}, {
+												"iso":	51200,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0.4,
+												"pbf_add":	1,
+												"gaus_ratio":	1,
+												"sharp_ratio":	8,
+												"bf_gain":	4,
+												"bf_ratio":	1,
+												"bf_add":	32,
+												"luma_para":	{
+													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
+													"luma_sigma":	[48, 56, 64, 80, 96, 80, 64, 56],
+													"hf_clip":	[64, 96, 128, 160, 192, 160, 128, 0],
+													"local_sharp_strength":	[128, 128, 128, 128, 128, 128, 128, 128]
+												},
+												"kernel_para":	{
+													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
+												},
+												"kernel_sigma":	{
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
+												}
+											}, {
+												"iso":	102400,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0.4,
+												"pbf_add":	1,
+												"gaus_ratio":	1,
+												"sharp_ratio":	8,
+												"bf_gain":	4,
+												"bf_ratio":	1,
+												"bf_add":	32,
+												"luma_para":	{
+													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
+													"luma_sigma":	[48, 56, 64, 80, 96, 80, 64, 56],
+													"hf_clip":	[64, 96, 128, 160, 192, 160, 128, 0],
+													"local_sharp_strength":	[128, 128, 128, 128, 128, 128, 128, 128]
+												},
+												"kernel_para":	{
+													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
+													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
+												},
+												"kernel_sigma":	{
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
 												}
 											}, {
 												"iso":	204800,
-												"pbf_gain":	1.5,
-												"pbf_ratio":	1,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0.4,
 												"pbf_add":	1,
-												"gaus_ratio":	0.8,
-												"sharp_ratio":	3,
-												"bf_gain":	1.5,
+												"gaus_ratio":	1,
+												"sharp_ratio":	8,
+												"bf_gain":	4,
 												"bf_ratio":	1,
-												"bf_add":	2,
+												"bf_add":	32,
 												"luma_para":	{
 													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[48, 56, 56, 48, 48, 40, 32, 32],
-													"hf_clip":	[32, 64, 80, 100, 120, 100, 80, 0],
-													"local_sharp_strength":	[200, 200, 200, 200, 200, 200, 200, 200]
+													"luma_sigma":	[48, 56, 64, 80, 96, 80, 64, 56],
+													"hf_clip":	[64, 96, 128, 160, 192, 160, 128, 0],
+													"local_sharp_strength":	[128, 128, 128, 128, 128, 128, 128, 128]
 												},
 												"kernel_para":	{
 													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
 													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
 												},
 												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
 												}
 											}],
 										"Tuning_ISO_len":	13
@@ -5483,354 +5483,354 @@
 										"Sensor_Mode":	"hcg",
 										"Tuning_ISO":	[{
 												"iso":	50,
-												"pbf_gain":	0.3,
-												"pbf_ratio":	0.5,
-												"pbf_add":	0,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0,
+												"pbf_add":	1,
 												"gaus_ratio":	0,
-												"sharp_ratio":	5,
-												"bf_gain":	0.3,
-												"bf_ratio":	0.5,
-												"bf_add":	0,
+												"sharp_ratio":	15,
+												"bf_gain":	2,
+												"bf_ratio":	1,
+												"bf_add":	32,
 												"luma_para":	{
 													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
 													"luma_sigma":	[8, 12, 16, 16, 24, 20, 16, 16],
-													"hf_clip":	[80, 96, 128, 160, 192, 160, 100, 80],
+													"hf_clip":	[64, 96, 12, 16, 19, 16, 12, 0],
 													"local_sharp_strength":	[1023, 1023, 1023, 1023, 1023, 1023, 1023, 1023]
 												},
 												"kernel_para":	{
 													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
 													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
 												},
 												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
 												}
 											}, {
 												"iso":	100,
-												"pbf_gain":	0.4,
-												"pbf_ratio":	0.5,
-												"pbf_add":	0,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0,
+												"pbf_add":	1,
 												"gaus_ratio":	0,
-												"sharp_ratio":	5,
-												"bf_gain":	0.4,
-												"bf_ratio":	0.5,
-												"bf_add":	0,
+												"sharp_ratio":	15,
+												"bf_gain":	3,
+												"bf_ratio":	1,
+												"bf_add":	32,
 												"luma_para":	{
 													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[12, 16, 20, 24, 28, 24, 16, 16],
-													"hf_clip":	[80, 96, 128, 160, 192, 160, 100, 0],
-													"local_sharp_strength":	[512, 512, 512, 512, 512, 512, 512, 512]
+													"luma_sigma":	[12, 16, 20, 24, 28, 24, 20, 20],
+													"hf_clip":	[64, 96, 12, 16, 19, 16, 12, 0],
+													"local_sharp_strength":	[1023, 1023, 1023, 1023, 1023, 1023, 1023, 1023]
 												},
 												"kernel_para":	{
 													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
 													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
 												},
 												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
 												}
 											}, {
 												"iso":	200,
-												"pbf_gain":	0.5,
-												"pbf_ratio":	0.5,
-												"pbf_add":	0,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0,
+												"pbf_add":	1,
 												"gaus_ratio":	0,
-												"sharp_ratio":	5,
-												"bf_gain":	0.5,
-												"bf_ratio":	0.5,
-												"bf_add":	0,
+												"sharp_ratio":	15,
+												"bf_gain":	3,
+												"bf_ratio":	1,
+												"bf_add":	32,
 												"luma_para":	{
 													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
 													"luma_sigma":	[24, 32, 40, 48, 56, 48, 48, 40],
-													"hf_clip":	[80, 96, 128, 160, 192, 160, 128, 0],
+													"hf_clip":	[64, 96, 12, 16, 19, 16, 12, 0],
 													"local_sharp_strength":	[512, 512, 512, 512, 512, 512, 512, 512]
 												},
 												"kernel_para":	{
 													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
 													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
 												},
 												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
 												}
 											}, {
 												"iso":	400,
-												"pbf_gain":	0.4,
-												"pbf_ratio":	0.6,
-												"pbf_add":	0,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0,
+												"pbf_add":	1,
 												"gaus_ratio":	0,
-												"sharp_ratio":	5,
-												"bf_gain":	0.4,
-												"bf_ratio":	0.6,
-												"bf_add":	0,
+												"sharp_ratio":	15,
+												"bf_gain":	4,
+												"bf_ratio":	1,
+												"bf_add":	32,
 												"luma_para":	{
 													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[32, 40, 48, 56, 56, 48, 32, 32],
-													"hf_clip":	[80, 96, 128, 160, 192, 160, 100, 80],
-													"local_sharp_strength":	[320, 320, 320, 320, 320, 320, 320, 320]
+													"luma_sigma":	[32, 40, 48, 56, 64, 56, 48, 40],
+													"hf_clip":	[64, 96, 12, 16, 19, 16, 12, 0],
+													"local_sharp_strength":	[512, 512, 512, 512, 512, 512, 512, 512]
 												},
 												"kernel_para":	{
 													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
 													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
 												},
 												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
 												}
 											}, {
 												"iso":	800,
-												"pbf_gain":	0.5,
-												"pbf_ratio":	0.7,
-												"pbf_add":	0,
-												"gaus_ratio":	0.2,
-												"sharp_ratio":	5,
-												"bf_gain":	0.5,
-												"bf_ratio":	0.7,
-												"bf_add":	0,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0.2,
+												"pbf_add":	1,
+												"gaus_ratio":	0.3,
+												"sharp_ratio":	12,
+												"bf_gain":	4,
+												"bf_ratio":	1,
+												"bf_add":	32,
 												"luma_para":	{
 													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[40, 48, 56, 56, 48, 40, 32, 32],
-													"hf_clip":	[80, 96, 128, 160, 192, 160, 100, 0],
-													"local_sharp_strength":	[320, 320, 320, 320, 320, 320, 320, 320]
+													"luma_sigma":	[40, 48, 56, 64, 80, 64, 56, 48],
+													"hf_clip":	[64, 96, 12, 16, 19, 16, 12, 0],
+													"local_sharp_strength":	[512, 512, 512, 512, 512, 512, 512, 512]
 												},
 												"kernel_para":	{
 													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
 													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
 												},
 												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
 												}
 											}, {
 												"iso":	1600,
-												"pbf_gain":	0.7,
-												"pbf_ratio":	0.8,
-												"pbf_add":	0,
-												"gaus_ratio":	0.4,
-												"sharp_ratio":	4,
-												"bf_gain":	0.7,
-												"bf_ratio":	0.8,
-												"bf_add":	0,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0.2,
+												"pbf_add":	1,
+												"gaus_ratio":	0.5,
+												"sharp_ratio":	10,
+												"bf_gain":	4,
+												"bf_ratio":	1,
+												"bf_add":	32,
 												"luma_para":	{
 													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[40, 48, 56, 56, 48, 40, 36, 32],
-													"hf_clip":	[48, 80, 120, 140, 160, 140, 100, 0],
+													"luma_sigma":	[48, 56, 64, 80, 96, 80, 64, 56],
+													"hf_clip":	[64, 96, 12, 16, 19, 16, 12, 0],
 													"local_sharp_strength":	[256, 256, 256, 256, 256, 256, 256, 256]
 												},
 												"kernel_para":	{
 													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
 													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
 												},
 												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
 												}
 											}, {
 												"iso":	3200,
 												"pbf_gain":	0.8,
-												"pbf_ratio":	0.8,
-												"pbf_add":	0,
-												"gaus_ratio":	0.5,
-												"sharp_ratio":	4,
-												"bf_gain":	0.8,
-												"bf_ratio":	0.8,
-												"bf_add":	0,
+												"pbf_ratio":	0.2,
+												"pbf_add":	1,
+												"gaus_ratio":	0.8,
+												"sharp_ratio":	8,
+												"bf_gain":	4,
+												"bf_ratio":	1,
+												"bf_add":	32,
 												"luma_para":	{
 													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[40, 48, 56, 56, 48, 40, 32, 32],
-													"hf_clip":	[32, 64, 100, 120, 140, 120, 100, 0],
-													"local_sharp_strength":	[256, 256, 256, 256, 256, 256, 256, 256]
+													"luma_sigma":	[48, 56, 64, 80, 96, 80, 64, 56],
+													"hf_clip":	[64, 96, 12, 16, 19, 16, 12, 0],
+													"local_sharp_strength":	[128, 128, 128, 128, 128, 128, 128, 128]
 												},
 												"kernel_para":	{
 													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
 													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
 												},
 												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
 												}
 											}, {
 												"iso":	6400,
-												"pbf_gain":	1,
-												"pbf_ratio":	0.8,
-												"pbf_add":	0,
-												"gaus_ratio":	0.5,
-												"sharp_ratio":	4,
-												"bf_gain":	1,
-												"bf_ratio":	0.8,
-												"bf_add":	0,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0.3,
+												"pbf_add":	1,
+												"gaus_ratio":	1,
+												"sharp_ratio":	8,
+												"bf_gain":	4,
+												"bf_ratio":	1,
+												"bf_add":	32,
 												"luma_para":	{
 													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[40, 48, 56, 56, 48, 40, 32, 32],
-													"hf_clip":	[32, 64, 100, 120, 160, 120, 100, 0],
-													"local_sharp_strength":	[200, 200, 200, 200, 200, 200, 200, 200]
+													"luma_sigma":	[48, 56, 64, 80, 96, 80, 64, 56],
+													"hf_clip":	[64, 96, 12, 16, 19, 16, 12, 0],
+													"local_sharp_strength":	[128, 128, 128, 128, 128, 128, 128, 128]
 												},
 												"kernel_para":	{
 													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
 													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
 												},
 												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
 												}
 											}, {
 												"iso":	12800,
-												"pbf_gain":	1,
-												"pbf_ratio":	0.9,
-												"pbf_add":	0,
-												"gaus_ratio":	0.5,
-												"sharp_ratio":	4,
-												"bf_gain":	1,
-												"bf_ratio":	0.9,
-												"bf_add":	0,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0.4,
+												"pbf_add":	1,
+												"gaus_ratio":	1,
+												"sharp_ratio":	8,
+												"bf_gain":	4,
+												"bf_ratio":	1,
+												"bf_add":	32,
 												"luma_para":	{
 													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[40, 48, 56, 56, 48, 40, 32, 32],
-													"hf_clip":	[32, 64, 86, 100, 120, 100, 80, 0],
-													"local_sharp_strength":	[200, 200, 200, 200, 200, 200, 200, 200]
+													"luma_sigma":	[48, 56, 64, 80, 96, 80, 64, 56],
+													"hf_clip":	[64, 96, 12, 16, 19, 16, 12, 0],
+													"local_sharp_strength":	[128, 128, 128, 128, 128, 128, 128, 128]
 												},
 												"kernel_para":	{
 													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
 													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
 												},
 												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
 												}
 											}, {
 												"iso":	25600,
-												"pbf_gain":	1.5,
-												"pbf_ratio":	0.9,
-												"pbf_add":	0,
-												"gaus_ratio":	0.6,
-												"sharp_ratio":	3,
-												"bf_gain":	1.5,
-												"bf_ratio":	0.9,
-												"bf_add":	0,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0.4,
+												"pbf_add":	1,
+												"gaus_ratio":	1,
+												"sharp_ratio":	8,
+												"bf_gain":	4,
+												"bf_ratio":	1,
+												"bf_add":	32,
 												"luma_para":	{
 													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[40, 48, 56, 56, 48, 40, 32, 32],
-													"hf_clip":	[32, 48, 64, 80, 120, 100, 80, 0],
-													"local_sharp_strength":	[200, 200, 200, 200, 200, 200, 200, 200]
+													"luma_sigma":	[48, 56, 64, 80, 96, 80, 64, 56],
+													"hf_clip":	[64, 96, 12, 16, 19, 16, 12, 0],
+													"local_sharp_strength":	[128, 128, 128, 128, 128, 128, 128, 128]
 												},
 												"kernel_para":	{
 													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
 													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
 												},
 												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
 												}
 											}, {
 												"iso":	51200,
-												"pbf_gain":	1.5,
-												"pbf_ratio":	0.9,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0.4,
 												"pbf_add":	1,
-												"gaus_ratio":	0.7,
-												"sharp_ratio":	3,
-												"bf_gain":	1.5,
-												"bf_ratio":	0.9,
-												"bf_add":	1,
+												"gaus_ratio":	1,
+												"sharp_ratio":	8,
+												"bf_gain":	4,
+												"bf_ratio":	1,
+												"bf_add":	32,
 												"luma_para":	{
 													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[8, 12, 16, 16, 24, 20, 16, 16],
-													"hf_clip":	[32, 64, 80, 100, 120, 100, 80, 0],
-													"local_sharp_strength":	[200, 200, 200, 200, 200, 200, 200, 200]
+													"luma_sigma":	[48, 56, 64, 80, 96, 80, 64, 56],
+													"hf_clip":	[64, 96, 12, 16, 19, 16, 12, 0],
+													"local_sharp_strength":	[128, 128, 128, 128, 128, 128, 128, 128]
 												},
 												"kernel_para":	{
 													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
 													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
 												},
 												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
 												}
 											}, {
 												"iso":	102400,
-												"pbf_gain":	1.5,
-												"pbf_ratio":	1,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0.4,
 												"pbf_add":	1,
 												"gaus_ratio":	1,
-												"sharp_ratio":	4,
-												"bf_gain":	1.5,
+												"sharp_ratio":	8,
+												"bf_gain":	4,
 												"bf_ratio":	1,
-												"bf_add":	2,
+												"bf_add":	32,
 												"luma_para":	{
 													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[40, 48, 56, 56, 48, 40, 32, 32],
-													"hf_clip":	[32, 64, 80, 100, 120, 100, 80, 0],
-													"local_sharp_strength":	[200, 200, 200, 200, 200, 200, 200, 200]
+													"luma_sigma":	[48, 56, 64, 80, 96, 80, 64, 56],
+													"hf_clip":	[64, 96, 12, 16, 19, 16, 12, 0],
+													"local_sharp_strength":	[128, 128, 128, 128, 128, 128, 128, 128]
 												},
 												"kernel_para":	{
 													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
 													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
 												},
 												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
 												}
 											}, {
 												"iso":	204800,
-												"pbf_gain":	1.5,
-												"pbf_ratio":	1,
+												"pbf_gain":	0.8,
+												"pbf_ratio":	0.4,
 												"pbf_add":	1,
-												"gaus_ratio":	0.8,
-												"sharp_ratio":	3,
-												"bf_gain":	1.5,
+												"gaus_ratio":	1,
+												"sharp_ratio":	8,
+												"bf_gain":	4,
 												"bf_ratio":	1,
-												"bf_add":	2,
+												"bf_add":	32,
 												"luma_para":	{
 													"luma_point":	[0, 64, 128, 256, 384, 640, 896, 1024],
-													"luma_sigma":	[48, 56, 56, 48, 48, 40, 32, 32],
-													"hf_clip":	[32, 64, 80, 100, 120, 100, 80, 0],
-													"local_sharp_strength":	[200, 200, 200, 200, 200, 200, 200, 200]
+													"luma_sigma":	[48, 56, 64, 80, 96, 80, 64, 56],
+													"hf_clip":	[64, 96, 12, 16, 19, 16, 12, 0],
+													"local_sharp_strength":	[128, 128, 128, 128, 128, 128, 128, 128]
 												},
 												"kernel_para":	{
 													"prefilter_coeff":	[0.2042, 0.1238, 0.0751],
-													"GaussianFilter_coeff":	[0.0632, 0.0558, 0.0492, 0.0383, 0.0338, 0.0232],
+													"GaussianFilter_coeff":	[0.2042, 0.1238, 0.0751],
 													"hfBilateralFilter_coeff":	[0.2042, 0.1238, 0.0751]
 												},
 												"kernel_sigma":	{
-													"prefilter_sigma":	0,
-													"hfBilateralFilter_sigma":	0,
-													"GaussianFilter_sigma":	0,
-													"GaussianFilter_radius":	0
+													"prefilter_sigma":	1,
+													"hfBilateralFilter_sigma":	1,
+													"GaussianFilter_sigma":	2,
+													"GaussianFilter_radius":	2
 												}
 											}],
 										"Tuning_ISO_len":	13
