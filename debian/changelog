@@ -1,3 +1,13 @@
+rockchip-iqfiles (0.2.2) jammy; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * ci: sync with rsetup
+
+  [ Ken Wang ]
+  * update imx219 json
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 09 Jul 2024 09:08:56 +0000
+
 rockchip-iqfiles (0.2.1) jammy; urgency=medium
 
   [ Ken Wang ]
