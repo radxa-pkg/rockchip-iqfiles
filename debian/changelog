@@ -1,3 +1,10 @@
+rockchip-iqfiles (0.2.3) jammy; urgency=medium
+
+  [ Ken Wang ]
+  * rockchip-iqfiles-rk3588: add 1920x1080@60fps for imx415
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 08 Oct 2024 02:01:43 +0000
+
 rockchip-iqfiles (0.2.2) jammy; urgency=medium
 
   [ ZHANG Yuntian ]
