@@ -8,6 +8,47 @@ Build-Depends: debhelper (>=12~),
                lintian,
                pandoc,
 
+Package: rockchip-iqfiles-rk3328
+Architecture: all
+Section: libs
+Priority: optional
+Replaces: rockchip-iqfiles,
+Breaks: rockchip-iqfiles,
+Provides: rockchip-iqfiles,
+Depends: rkisp-engine,
+         ${misc:Depends},
+Description: Additional camera tuning profiles for Rockchip RK3328
+ This package contains additional camera tuning profiles that is not
+ included in the official Rockchip packages.
+ This is currently an empty package.
+
+Package: rockchip-iqfiles-rk3399
+Architecture: all
+Section: libs
+Priority: optional
+Replaces: rockchip-iqfiles,
+Breaks: rockchip-iqfiles,
+Provides: rockchip-iqfiles,
+Depends: rkisp-engine,
+         ${misc:Depends},
+Description: Additional camera tuning profiles for Rockchip RK3399
+ This package contains additional camera tuning profiles that is not
+ included in the official Rockchip packages.
+
+Package: rockchip-iqfiles-rk3562
+Architecture: all
+Section: libs
+Priority: optional
+Replaces: rockchip-iqfiles,
+Breaks: rockchip-iqfiles,
+Provides: rockchip-iqfiles,
+Depends: camera-engine-rkaiq-rk3562,
+         ${misc:Depends},
+Description: Additional camera tuning profiles for Rockchip RK3562
+ This package contains additional camera tuning profiles that is not
+ included in the official Rockchip packages.
+ This is currently an empty package.
+
 Package: rockchip-iqfiles-rk356x
 Architecture: all
 Section: libs
@@ -33,44 +74,3 @@ Depends: camera-engine-rkaiq-rk3588,
 Description: Additional camera tuning profiles for Rockchip RK3588
  This package contains additional camera tuning profiles that is not
  included in the official Rockchip packages.
-
-Package: rockchip-iqfiles-rk3399
-Architecture: all
-Section: libs
-Priority: optional
-Replaces: rockchip-iqfiles,
-Breaks: rockchip-iqfiles,
-Provides: rockchip-iqfiles,
-Depends: rkisp-engine,
-         ${misc:Depends},
-Description: Additional camera tuning profiles for Rockchip RK3399
- This package contains additional camera tuning profiles that is not
- included in the official Rockchip packages.
-
-Package: rockchip-iqfiles-rk3328
-Architecture: all
-Section: libs
-Priority: optional
-Replaces: rockchip-iqfiles,
-Breaks: rockchip-iqfiles,
-Provides: rockchip-iqfiles,
-Depends: rkisp-engine,
-         ${misc:Depends},
-Description: Additional camera tuning profiles for Rockchip RK3328
- This package contains additional camera tuning profiles that is not
- included in the official Rockchip packages.
- This is currently an empty package.
-
-Package: rockchip-iqfiles-rk3562
-Architecture: all
-Section: libs
-Priority: optional
-Replaces: rockchip-iqfiles,
-Breaks: rockchip-iqfiles,
-Provides: rockchip-iqfiles,
-Depends: camera-engine-rkaiq-rk3562,
-         ${misc:Depends},
-Description: Additional camera tuning profiles for Rockchip RK3562
- This package contains additional camera tuning profiles that is not
- included in the official Rockchip packages.
- This is currently an empty package.
