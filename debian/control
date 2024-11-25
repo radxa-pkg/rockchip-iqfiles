@@ -62,6 +62,19 @@ Description: Additional camera tuning profiles for Rockchip RK3566/8
  This package contains additional camera tuning profiles that is not
  included in the official Rockchip packages.
 
+Package: rockchip-iqfiles-rk3576
+Architecture: all
+Section: libs
+Priority: optional
+Replaces: rockchip-iqfiles,
+Breaks: rockchip-iqfiles,
+Provides: rockchip-iqfiles,
+Depends: camera-engine-rkaiq-rk3576,
+         ${misc:Depends},
+Description: Additional camera tuning profiles for Rockchip RK3576
+ This package contains additional camera tuning profiles that is not
+ included in the official Rockchip packages.
+
 Package: rockchip-iqfiles-rk3588
 Architecture: all
 Section: libs
