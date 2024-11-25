@@ -1,9 +1,7 @@
 /.debhelper
 /debhelper-build-stamp
 /files
-/rockchip-iqfiles
-/rockchip-iqfiles-rk356x
-/rockchip-iqfiles-rk2312
+/rockchip-iqfiles*/
 /*.debhelper.log
 /*.postrm.debhelper
 /*.substvars
