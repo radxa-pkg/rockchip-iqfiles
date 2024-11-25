@@ -1,3 +1,13 @@
+rockchip-iqfiles (0.2.4) jammy; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * format: reorder based on SoC name
+  * fix: delete intermediate files
+  * fix: update ignore and clean list
+  * feat: bootstrap rockchip-iqfiles-rk3576
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Mon, 25 Nov 2024 08:15:58 +0000
+
 rockchip-iqfiles (0.2.3) jammy; urgency=medium
 
   [ Ken Wang ]
