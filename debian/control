@@ -29,7 +29,7 @@ Priority: optional
 Replaces: rockchip-iqfiles,
 Breaks: rockchip-iqfiles,
 Provides: rockchip-iqfiles,
-Depends: rkisp-engine,
+Depends: rkisp-engine | camera-engine-rkisp,
          ${misc:Depends},
 Description: Additional camera tuning profiles for Rockchip RK3399
  This package contains additional camera tuning profiles that is not
