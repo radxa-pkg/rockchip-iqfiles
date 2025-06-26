@@ -1,3 +1,17 @@
+rockchip-iqfiles (0.2.6) noble; urgency=medium
+
+  [ Stephen Chen ]
+  * feat: rk3576: add radxa-camera-4k json
+  * fix: remove .gitkeep
+
+  [ Jiali Chen ]
+  * fix: rk356x: change iqfiles to work with linux-6.1-stan-rkr4
+
+  [ Zhaoming Luo ]
+  * rockchip-iqfiles-rk3399: add an alternative name for rkisp-engine
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 26 Jun 2025 03:07:16 +0000
+
 rockchip-iqfiles (0.2.5) jammy; urgency=medium
 
   [ Ken Wang ]
