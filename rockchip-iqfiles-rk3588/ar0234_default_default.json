@@ -6,16 +6,16 @@
 		},
 		"Gain2Reg":	{
 			"GainMode":	"EXPGAIN_MODE_LINEAR",
-			"GainRange":	[1, 16, 512, 0, 1, 512, 8192],
-			"GainRange_len":	7
+			"GainRange":	[1.68421, 2, -32, -32, -1, 13, 16, 2, 4, -64, -48, -1, 16, 32, 4, 8, -128, -64, -1, 32, 48, 8, 16, -256, -80, -1, 48, 64],
+			"GainRange_len":	28
 		},
 		"Time2Reg":	{
 			"fCoeff":	[0, 0, 1, 0.5]
 		},
 		"CISGainSet":	{
 			"CISAgainRange":	{
-				"Min":	1,
-				"Max":	15.9
+				"Min":	1.68421,
+				"Max":	3.7
 			},
 			"CISExtraAgainRange":	{
 				"Min":	1,
@@ -155,10 +155,10 @@
 								},
 								"AecSpeed":	{
 									"SmoothEn":	1,
-									"DampOver":	0.15,
-									"DampUnder":	0.45,
-									"DampDark2Bright":	0.15,
-									"DampBright2Dark":	0.45,
+									"DampOver":	0.6,
+									"DampUnder":	0.7,
+									"DampDark2Bright":	0.5,
+									"DampBright2Dark":	0.6,
 									"DyDamp":	{
 										"DyDampEn":	1,
 										"SlowOPType":	"RK_AIQ_OP_MODE_AUTO",
