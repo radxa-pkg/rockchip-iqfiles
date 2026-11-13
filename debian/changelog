@@ -1,3 +1,39 @@
+rockchip-iqfiles (0.2.7) noble; urgency=medium
+
+  [ liangyuanjin ]
+  * feat: rk3576: add imx214 json
+  * feat: rk3576: add imx219 json
+  * feat: rk3576: add ov5647 json
+  * perf: rk3576: optimize imx415 camera parameters
+  * feat: rk3588: add imx214 json
+  * feat: rk3588: add imx708 json
+  * perf: rk356x: optimize imx219-radxa-camera-8m parameters
+  * perf: rk356x: optimize imx219-rpi-camera-v2 parameters
+  * perf: rk356x: optimize ov5647-okdo-5mp parameters
+  * perf: rk3588: optimize imx577 parameters
+  * feat: rk3588: add ar0234 json
+  * perf: rk356x: optimize ov5647-rpi-camera-v1.3 parameters
+  * fix: Fix screen flickering issue.
+  * feat: rk3588: add imx766 json
+  * fix: Fixed screen tearing at three resolutions.
+  * fix: Fixed black screen issues at 1640x1232 and 640x480 resolutions.
+  * perf: rk3588: optimize imx219-rpi-camera parameters
+  * feat: rk356x: add ar0234 json
+
+  [ Xinming Chen ]
+  * feat: rk3588: add imx577 json
+
+  [ ZHANG Yuntian ]
+  * fix: remove outdated files from old structure
+  * chore: add pkg.conf.template
+
+  [ Jerry Liang ]
+  * perf: rk3576: optimize imx219-radxa-camera-8m parameters
+  * feat: rk3576: add imx577 json
+  * feat: rk356x: add missing AR0234 LSC resolutions
+
+ -- "Radxa Computer (Shenzhen) Co., Ltd." <dev@radxa.com>  Fri, 13 Nov 2026 07:56:17 +0000
+
 rockchip-iqfiles (0.2.6) noble; urgency=medium
 
   [ Stephen Chen ]
