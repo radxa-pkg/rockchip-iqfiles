@@ -1,0 +1,10 @@
+{
+  "*": {
+    "Releases": [
+      "bookworm",
+      "bookworm-test",
+      "trixie",
+      "trixie-test"
+    ]
+  }
+}
